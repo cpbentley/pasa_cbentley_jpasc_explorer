@@ -13,7 +13,7 @@ Quote by Christopher Columbus
 
 # Simple PascalCoin Blockchain Explorer
 
-Stand alone GUI for exploring the Pascal chain. It requires a system with Java 8 and the reference wallet for PascalCoin 4.0.2
+Stand alone GUI for exploring the Pascal chain.
 
 ## Software requirements
 
@@ -21,13 +21,17 @@ Stand alone GUI for exploring the Pascal chain. It requires a system with Java 8
 2. PascalCoin 4.0.2 
 
 ## Table of Contents
-  * [Latest Release](#Latest Release)
+
+  * [Latest Release](#latest-release)
   * [Installation](#installation)
   * [Run as binary](#run-a-release)
   * [Run in Eclipse](#run-in-eclipse)
 
 ***
+
 ## Latest Release
+
+[↑](#table-of-contents)
 
 ## Installation
 
@@ -82,8 +86,10 @@ final | pasa_cbentley_jpasc_explorer | [Import Link](https://github.com/cpbentle
 
 ##### Command Line
 
+[↑](#table-of-contents)
+
 #### Run in Eclipse
-[Up](#table-of-contents)
+
 
 Search in Eclipse for project **_pasa_cbentley_jpasc_pcore_test_**, inside src folder
 
