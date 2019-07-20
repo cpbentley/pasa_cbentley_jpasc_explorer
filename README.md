@@ -11,9 +11,14 @@ modified | ![GitHub last commit](https://img.shields.io/github/last-commit/cpben
 Quote by Christopher Columbus
 > Following the light of the sun, we left the Old World.
 
-# JPasc PCore Tests
+# Simple PascalCoin Blockchain Explorer
 
-Stand alone GUI for exploring the Pascal chain.
+Stand alone GUI for exploring the Pascal chain. It requires a system with Java 8 and the reference wallet for PascalCoin 4.0.2
+
+## Software requirements
+
+1. Java 8
+2. PascalCoin 4.0.2 
 
 ## Table of Contents
   * [Latest Release](#Latest Release)
