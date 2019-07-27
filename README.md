@@ -67,17 +67,33 @@ Stand alone GUI for exploring the Pascal chain.
 
 num | id | Right Click -> Copy Link Address
 ----| -- | -------------
-1 | pasa_cbentley_core_src4 | [Import Link](https://github.com/cpbentley/pasa_cbentley_core_src4)
-2 | pasa_cbentley_byteobjects_src4 | [Import Link](https://github.com/cpbentley/pasa_cbentley_byteobjects_src4)
-3 | pasa_cbentley_core_src5 | [Import Link](https://github.com/cpbentley/pasa_cbentley_core_src5)
-3 | pasa_cbentley_core_src8 | [Import Link](https://github.com/cpbentley/pasa_cbentley_core_src8)
-4 | pasa_dbolet_jpascalcoin_v3 | [Import Link](https://github.com/cpbentley/pasa_dbolet_jpascalcoin_v3)
-5 | pasa_cbentley_swing | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing)
-5 | pasa_cbentley_swing_images | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_images)
-5 | pasa_cbentley_swing_gif | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_gif)
-5 | pasa_cbentley_jpasc_pcore | [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_pcore)
-5 | pasa_cbentley_jpasc_swing | [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_swing)
+1 | java_src4_compat_j2se | [Import Link](https://github.com/cpbentley/java_src4_compat_j2se)
+2 | pasa_cbentley_core_src4 | [Import Link](https://github.com/cpbentley/pasa_cbentley_core_src4)
+3 | pasa_cbentley_byteobjects_src4 | [Import Link](https://github.com/cpbentley/pasa_cbentley_byteobjects_src4)
+4 | pasa_cbentley_core_src5 | [Import Link](https://github.com/cpbentley/pasa_cbentley_core_src5)
+5 | pasa_cbentley_core_src8 | [Import Link](https://github.com/cpbentley/pasa_cbentley_core_src8)
+6 | pasa_dbolet_jpascalcoin_v3 | [Import Link](https://github.com/cpbentley/pasa_dbolet_jpascalcoin_v3)
+7 | pasa_cbentley_swing | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing)
+8 | pasa_cbentley_swing_images | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_images)
+9 | pasa_cbentley_swing_gif | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_gif)
+10 | pasa_cbentley_jpasc_pcore | [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_pcore)
+11 | pasa_cbentley_jpasc_swing | [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_swing)
 final | pasa_cbentley_jpasc_explorer | [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer)
+
+After all this hard work, all the projects should compile without errors.
+
+#### Eclipse: Create working set
+
+Using a working set allows to narrow down the workspace view to a given set of projects.
+Let's create a PascalCoin Simple Explorer working set
+
+File -> New -> Other. A window appears. Select Java -> Working Set as shown below:
+
+![create_java_working_set.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/create_java_working_set.jpg)
+
+
+
+
 
 #### Run a release
 [Up](#table-of-contents)
