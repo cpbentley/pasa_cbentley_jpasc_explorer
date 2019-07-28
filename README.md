@@ -57,10 +57,10 @@ Stand alone GUI for exploring the Pascal chain.
     ![explorer_git.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/explorer_git.jpg)
   5. Select master branch
    ![eclipse_git_branch.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_git_branch.jpg)
-  6. Next
+  6. Next you decide where the cloned repository will be created.
   ![eclipse_import_git_path.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_import_git_path.jpg)
   7. Select import Eclipse Project.
-   ![eclipse_import_git_path.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_import_git_path.jpg)
+   ![eclipse_import_git_choose.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_import_git_choose.jpg)
   8. Eclipse project is selected. Press Finish
   ![eclipse_import_git_finish.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_import_git_finish.jpg)
  
