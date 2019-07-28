@@ -54,11 +54,16 @@ Stand alone GUI for exploring the Pascal chain.
   ![eclipse_run_as.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_import_git.jpg)
   3. In the dialog find Git -> Projects from Git -> Clone URI
   4. If you have copied the github repository url in the clipboard, you should see
-    ![eclipse_run_as.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_git_cloneuri.jpg)
+    ![explorer_git.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/explorer_git.jpg)
   5. Select master branch
-   ![eclipse_run_as.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_git_branch.jpg)
-  6. Next-Next
+   ![eclipse_git_branch.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_git_branch.jpg)
+  6. Next
+  ![eclipse_import_git_path.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_import_git_path.jpg)
   7. Select import Eclipse Project.
+   ![eclipse_import_git_path.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_import_git_path.jpg)
+  8. Eclipse project is selected. Press Finish
+  ![eclipse_import_git_finish.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_import_git_finish.jpg)
+ 
 
 * Import the final link (actual project of this repository) using the same process.
 * Optional: Check the source code.
