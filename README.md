@@ -6,7 +6,7 @@ author | Charles-Philip Bentley
 license | ![license CC by-nc-nd](https://img.shields.io/badge/license-CC%20by--nc--nd-red.svg?style=plastic)
 tags | Java PascalCoin Blockchain Explorer Ant
 created | July 2019
-modified | ![GitHub last commit](https://img.shields.io/github/last-commit/cpbentley/pasa_cbentley_jpasc_pcore_test.svg?style=plastic)
+modified | ![GitHub last commit](https://img.shields.io/github/last-commit/cpbentley/pasa_cbentley_jpasc_explorer.svg?style=plastic)
 
 Quote by Christopher Columbus
 > Following the light of the sun, we left the Old World.
@@ -92,7 +92,17 @@ File -> New -> Other. A window appears. Select Java -> Working Set as shown belo
 
 ![create_java_working_set.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/create_java_working_set.jpg)
 
+![eclipse_create_working_set_.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_create_working_set_.jpg)
 
+![eclipse_working_set_select.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_working_set_select.jpg)
+
+#### Pull on the latest
+
+Select all projects in the working set.
+
+![explorer_pull_multiple.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/explorer_pull_multiple.jpg)
+
+![explorer_pull_multiple_ok.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/explorer_pull_multiple_ok.jpg)
 
 
 
@@ -108,9 +118,9 @@ File -> New -> Other. A window appears. Select Java -> Working Set as shown belo
 #### Run in Eclipse
 
 
-Search in Eclipse for project **_pasa_cbentley_jpasc_pcore_test_**, inside src folder
+Search in Eclipse for project **_pasa_cbentley_jpasc_explorer_**, inside src folder
 
- ![eclipse_run_as.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/eclipse_run_unit_test.jpg)
+ ![explorer_run.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/explorer_run.jpg)
  
 Right click on it and select Run As
 
