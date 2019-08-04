@@ -18,6 +18,8 @@ public class PascExplorerCtx extends ACtx {
 
    private RunJPascExplorer       runner;
 
+   private String version;
+   
    public PascExplorerCtx(PascalSwingCtx psc) {
       super(psc.getUCtx());
       this.psc = psc;
@@ -42,5 +44,13 @@ public class PascExplorerCtx extends ACtx {
 
    public void setRunner(RunJPascExplorer runner) {
       this.runner = runner;
+   }
+
+   public String getVersion() {
+      return version;
+   }
+
+   public void setVersion(String version) {
+      this.version = version;
    }
 }

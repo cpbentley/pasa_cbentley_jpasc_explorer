@@ -101,58 +101,66 @@ public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
    }
 
    public Integer getAccountNext(Integer account) {
-      // TODO Auto-generated method stub
-      return null;
+      initCheck();
+      return chainExplorer.getAccountNext(account);
    }
 
    public Integer getAccountPrev(Integer account) {
-      // TODO Auto-generated method stub
-      return null;
+      initCheck();
+      return chainExplorer.getAccountPrev(account);
    }
 
    public IAccessPascal getAccessPascal() {
-      // TODO Auto-generated method stub
-      return null;
+      initCheck();
+      return chainExplorer.getAccessPascal();
    }
 
    public void showAccountDetails(Account ac) {
-      // TODO Auto-generated method stub
-
+      initCheck();
+      //must not be null of after init
+      chainExplorer.showAccountDetails(ac);
    }
 
    public void showAccountDetails(Integer ac) {
-      // TODO Auto-generated method stub
-
+      initCheck();
+      //must not be null of after init
+      chainExplorer.showAccountDetails(ac);
    }
 
    public void showAccountOwner(Account ac) {
-      // TODO Auto-generated method stub
-
+      initCheck();
+      //must not be null of after init
+      chainExplorer.showAccountOwner(ac);
    }
 
    public void showAccountOwner(Integer ac) {
-      // TODO Auto-generated method stub
-
+      initCheck();
+      //must not be null of after init
+      chainExplorer.showAccountOwner(ac);
    }
 
    public void showBlock(Block ac) {
-      // TODO Auto-generated method stub
-
+      initCheck();
+      //must not be null of after init
+      chainExplorer.showBlock(ac);
    }
 
    public void showPublicKeyAccounts(PublicKey pk) {
-      // TODO Auto-generated method stub
-
+      initCheck();
+      //must not be null of after init
+      chainExplorer.showPublicKeyAccounts(pk);
    }
 
    public void showPublicKeyJavaAccountNames(PublicKeyJava pk) {
-      // TODO Auto-generated method stub
-
+      initCheck();
+      //must not be null of after init
+      chainExplorer.showPublicKeyJavaAccountNames(pk);
    }
 
    public void showPublicKeyJavaAccounts(PublicKeyJava pk) {
-      // TODO Auto-generated method stub
-
+      initCheck();
+      //must not be null of after init
+      chainExplorer.showPublicKeyJavaAccounts(pk);
    }
 
    //#mdebug

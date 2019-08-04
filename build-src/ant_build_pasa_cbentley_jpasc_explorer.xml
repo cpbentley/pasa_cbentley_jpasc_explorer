@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- name is just a string -->
+<!-- basedir="path" is not required. if not present, defaults to the parent directory of the buildfile -->
+<project name="SimplExplorerPASC" default="main" basedir="../">
+	<echo>basedir=${basedir}</echo>
+	
+	<!-- Warning: Make sure the Ant task uses UTF-8! -->
+	<!--  Set Eclipse workspace UTF-8 by default :  Window->Preferences->General->Workspace->Text File Encoding -->
+	<!--  Or manually set UTF-8 for each ant run configurations -->
+	
+	
+	<!-- If you checkout all required dependencies in the same eclipse workspace you shouldn't have to modify this -->
+	<!-- by default assume workspace is one level above baseDir -->
+	<property name="workspace_eclipse" location="${basedir}/.." />
+	<echo>workspace_eclipse=${workspace_eclipse}</echo>
+		
+	
+	<!-- directory with libraries required by build file -->		
+	<property name="libsbuild" location="build-libs" />
+	<property name="antenna" location="${libsbuild}/antenna-simplepreprocessor1.1-bin-with-src.jar" />
+	<property name="proguard" location="${libsbuild}/proguard-5.3.3-bin-with-src.jar" />
+			
+	<!-- build_dir is safe to delete -->	
+	<property name="build_dir" location="build-dir" />
+	
+		
+	
+	<!-- using eclipse projects is faster when deving   -->
+	<!-- its also used when obfuscating a whole code base -->
+	<!-- needed when pre-processing modules -->
+	<property name="workspace_src" location="${workspace_eclipse}" />
+
+	<!-- here put all jars depedencies required by the project -->
+	<property name="libs" location="libs" />
+
+	<property name="src_dir" location="src" />
+	<property name="src_res" location="res" />
+	<property name="release_dir" location="releases" />
+
+	<property name="project_name" value="SimplExplorer for PascalCoin" />
+	<property name="jar_name" value="SimplExplorerPASC" />
+	<property name="version" value="0.1"/>
+
+	<property name="main_package" value="pasa.cbentley.jpasc.explorer" />
+	<property name="main_class" value="${main_package}.run.RunJPascExplorer" />
+	<property name="src_preprocessed" location="src_preprocessed" />
+					
+					
+
+	<!-- path to jar/zip libraries of *.class files -->
+	<path id="classpath">
+		<!-- <pathelement location="${libs}/extra.jar" /> -->
+		<pathelement location="${workspace_src}/pasa_cbentley_jpasc_swing/libs/jorbis-lgpl-0.0.17.jar" />
+		<pathelement location="${workspace_src}/pasa_cbentley_jpasc_swing/libs/timingframework-classic-1.1.jar" />
+			
+		<pathelement location="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs/converter-gson-2.3.0.jar" />
+		<pathelement location="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs/gson-2.8.2.jar" />
+		<pathelement location="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs/hamcrest-core-1.3.jar" />
+		<pathelement location="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs/logging-interceptor-3.8.0.jar" />
+		<pathelement location="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs/okhttp-3.8.0.jar" />
+		<pathelement location="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs/okio-1.13.0.jar" />
+		<pathelement location="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs/retrofit-2.3.0.jar" />
+	</path>
+
+	<taskdef resource="proguard/ant/task.properties" classpath="${proguard}" />
+
+	<target name="init_pro">
+		<echo>Buidling with preprocessing. All debug statements will be removed</echo>
+		<property name="jar_suffix" value="pro" />
+	</target>
+	
+	<target name="init_dev">
+		<echo>Building with no preprocessing. All debug statements will run</echo>
+		<property name="jar_suffix" value="dev" />
+	</target>	
+	
+	<target name="init">
+		<buildnumber/>
+		<echo>build.number=${build.number}</echo>
+	</target>
+
+	<target name="main_pro" depends="init, init_pro,  clean, create_classes_dir, init_prepro, compilePreProcessed, jar" description="Building for end users">
+	</target>
+			
+	<target name="main_dev" depends="init, init_dev,  clean, create_classes_dir,  compile, jar" description="Building for developers">
+	</target>
+
+	<target name="main" depends="" description="Show Building Options and current properties">
+		<echoproperties />
+		<echo>java.home=${java.home}</echo>
+		<echo>main_pro -> Buidling with preprocessing. All debug statements will be removed</echo>
+		<echo>main_dev -> Building with no preprocessing. All debug statements will run</echo>
+	</target>
+	
+	<target name="create_classes_dir" depends="init">
+		<mkdir dir="${build_dir}/classes-ant" />
+	</target>
+
+	<target name="clean">
+		<delete dir="${build_dir}/classes-ant" />
+		<delete dir="${src_preprocessed}" />
+	</target>
+	
+	<!-- ignore not found warning. as long as antenna property is correctly defined above, it will find the task at runtime -->		
+	<taskdef name="simplepreprocess" classname="antenna.preprocessor.task.SimplePreprocess"  classpath="${antenna}" />
+	
+	<target name="init_prepro" description="PreProcess target" >
+		<delete dir="${src_preprocessed}" />
+		<mkdir dir="${src_preprocessed}" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${src_dir}" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_core_src4/src" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_core_src5/src" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_core_src8/src" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_byteobjects_src4/src" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_swing/src" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_swing_images/src" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_swing_gif/src" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_jpasc_pcore/src" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_jpasc_swing/src" />
+		<!-- insert here more source paths -->
+	</target>
+
+	<target name="compilePreProcessed" description="Compile Preprocessed files">
+		<javac destdir="${build_dir}/classes-ant" source="1.8" target="1.8" encoding="UTF-8">
+			<src path="${src_preprocessed}" />
+			<!-- bring src that does not need to be pre processed -->
+			<src path="${workspace_src}/pasa_dbolet_jpascalcoin_v3/src" />
+			<src path="${workspace_src}/pasa_jtattoo/src" />
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<target name="compile" description="Compile target">
+		<javac destdir="${build_dir}/classes-ant" source="1.8" target="1.8" encoding="UTF-8">
+			<src path="${src_dir}" />
+			<!-- insert other modules src dependencies from the same workspace -->
+			<!-- res dependencies are done in the jar target -->
+			<src path="${workspace_src}/pasa_cbentley_core_src4/src" />
+			<src path="${workspace_src}/pasa_cbentley_core_src5/src" />
+			<src path="${workspace_src}/pasa_cbentley_core_src8/src" />
+			<src path="${workspace_src}/pasa_cbentley_byteobjects_src4/src" />
+			<src path="${workspace_src}/pasa_dbolet_jpascalcoin_v3/src" />
+			<src path="${workspace_src}/pasa_cbentley_swing/src" />
+			<src path="${workspace_src}/pasa_cbentley_swing_images/src" />
+			<src path="${workspace_src}/pasa_cbentley_swing_gif/src" />
+			<src path="${workspace_src}/pasa_cbentley_jpasc_pcore/src" />
+			<src path="${workspace_src}/pasa_jtattoo/src" />
+			<src path="${workspace_src}/pasa_cbentley_jpasc_swing/src" />
+				
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+
+	<tstamp/><!-- needed for TODAY -->
+
+	<target name="jar" description="Create a jar for the ${project_name} project">
+		<jar jarfile="${release_dir}/${jar_name}-${version}.${build.number}-${jar_suffix}.jar" basedir="${build_dir}/classes-ant">
+			<!-- add all filesets res and jar-->
+			<fileset dir="${src_res}" excludes="*/*.java" />
+			<!-- add dependencies res folders-->
+			<fileset dir="${workspace_src}/pasa_cbentley_swing/res" excludes="**/*.java"/>
+			<fileset dir="${workspace_src}/pasa_cbentley_swing_gif/res" excludes="**/*.gif"/>
+			<fileset dir="${workspace_src}/pasa_cbentley_jpasc_swing/res" excludes="**/*.java"/>
+			<fileset dir="${workspace_src}/pasa_cbentley_jpasc_pcore/res" excludes="**/*.java"/>
+			<!-- jtatto puts images in folder so we need to copy those as well -->
+			<fileset dir="${workspace_src}/pasa_jtattoo/src" excludes="**/*.java"/>
+
+			<!-- add dependencies jars lib-->
+			<!--  <zipfileset excludes="META-INF/*.*" src="${workspace_src}/pasa_cbentley_jpasc_swing/libs/jorbis-lgpl-0.0.17.jar" >
+					<excludes name="**/*.java" /> 
+			</zipfileset> -->
+			<zipgroupfileset dir="${workspace_src}/pasa_cbentley_jpasc_swing/libs" includes="**/*.jar"/>
+			<zipgroupfileset dir="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs" includes="**/*.jar"/>
+			<manifest>
+				<attribute name="Main-Class" value="${main_class}" />
+ 				<attribute name="Built-Date" value="${TODAY}"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<!-- Proguard not working with jars. Currently disabled -->
+	<target name="obfuscate" depends="jar" description="Obfuscate compiled classes">
+		<proguard>
+			  	-libraryjars "${java.home}\lib\rt.jar"
+			  	-injars      ${release_dir}/${jar_name}-${version}.${build.number}-${jar_suffix}.jar
+			  	-outjars     ${release_dir}/${jar_name}-${version}.${build.number}-${jar_suffix}-obf.jar
+				-dontwarn
+
+				# Pro guard for okhttp	https://github.com/square/okhttp/blob/master/okhttp/src/main/resources/META-INF/proguard/okhttp3.pro
+				# JSR 305 annotations are for embedding nullability information.
+				-dontwarn javax.annotation.**
+
+				# A resource is loaded with a relative path so the package of this class must be preserved.
+				-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
+				
+				# Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
+				-dontwarn org.codehaus.mojo.animal_sniffer.*
+				
+				# OkHttp platform used only on JVM and when Conscrypt dependency is available.
+				-dontwarn okhttp3.internal.platform.ConscryptPlatform
+
+				-dontwarn okhttp3.internal.platform.AndroidPlatform
+				-dontwarn okio.**
+				-dontwarn retrofit2.**
+
+				-keep class com.jtattoo.plaf.** { *; }
+				-keep class org.jdesktop.animation.** { *; }
+				
+				#-keep com.jtattoo.plaf.*
+				#-keep org.jdesktop.animation.*
+
+			  	-keep public class ${main_class} {
+					public static void main(java.lang.String[]);
+				  }
+		</proguard>
+	</target>
+
+	<!--	http://alvinalexander.com/java/obfuscate-java-class-files-proguard-ant-build-decompile
+	-->
+</project>
