@@ -36,33 +36,32 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
    /**
     * 
     */
-   private static final long serialVersionUID = -7322815975196057591L;
+   private static final long       serialVersionUID = -7322815975196057591L;
 
-   private BMenuItem         itemExit;
+   private BMenuItem               itemExit;
 
-   private MenuDebug         menuDebug;
+   private MenuDebugExplorer       menuDebug;
 
-   private BMenu             menuFile;
+   private BMenu                   menuFile;
 
-   private MenuLanguage      menuLanguage;
+   private MenuLanguage            menuLanguage;
 
-   private MenuWindow        windowMenu;
+   private MenuWindow              windowMenu;
 
-   private BMenu menuHelp;
+   private BMenu                   menuHelp;
 
-   private BMenuItem itemAboutHelp;
+   private BMenuItem               itemAboutHelp;
 
    protected final PascExplorerCtx pec;
 
-   private BMenuItem itemAboutFile;
+   private BMenuItem               itemAboutFile;
 
    public MenuBarPascalExplorer(PascExplorerCtx pec, CBentleyFrame frame) {
       super(pec.getPascalSwingCtx(), frame);
       this.pec = pec;
 
       SwingCtx sc = psc.getSwingCtx();
-      
-      
+
       buildMenuFile(sc);
 
       this.add(psc.getPascalSkinManager().getRootMenu());
@@ -76,10 +75,11 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
       windowMenu = new MenuWindow(sc);
       this.add(windowMenu);
 
-      menuDebug = new MenuDebug(sc);
+      //#mdebug
+      menuDebug = new MenuDebugExplorer(pec.getPascalSwingCtx());
       this.add(menuDebug);
+      //#enddebug
 
-      
       buildMenuHelp(sc);
 
    }
@@ -88,16 +88,16 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
       Object src = e.getSource();
       if (src == itemExit) {
          psc.getCmds().cmdExit();
-      } else if(src == itemAboutHelp || src == itemAboutFile) {
+      } else if (src == itemAboutHelp || src == itemAboutFile) {
          //show the about tab
          pec.cmdShowAboutTab();
       }
    }
-   
+
    private void buildMenuHelp(SwingCtx sc) {
       menuHelp = new BMenu(sc, "menu.help");
       menuHelp.setMnemonic(VK_H);
-      
+
       itemAboutHelp = new BMenuItem(sc, this, "menu.item.about");
       itemAboutHelp.setAccelerator(KeyStroke.getKeyStroke(VK_A, modCtrlAltShift));
       menuHelp.add(itemAboutHelp);
@@ -114,7 +114,7 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
 
       itemAboutFile = new BMenuItem(sc, this, "menu.item.about");
       itemAboutFile.setAccelerator(KeyStroke.getKeyStroke(VK_A, modCtrlAltShift));
-      
+
       menuFile.add(itemAboutFile);
       menuFile.add(itemExit);
 

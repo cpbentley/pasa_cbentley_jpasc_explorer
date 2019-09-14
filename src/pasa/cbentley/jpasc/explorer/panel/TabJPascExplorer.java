@@ -62,6 +62,8 @@ public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
       CentralLogger logger = new CentralLogger(psc, panelConsole);
       uc.setUserLog(logger);
 
+      logger.consoleLogDate("Welcome to Pascal Explorer "+ pec.getVersion()+ ". For updates visit https://github.com/cpbentley/pasa_cbentley_jpasc_explorer");
+      
       loginPanel = new PanelTabLogin(psc);
       loginPanel.setConfigShowBlockInfo(false);
 
