@@ -1,6 +1,7 @@
 package pasa.cbentley.jpasc.explorer.menu;
 
 import static java.awt.event.KeyEvent.VK_A;
+import static java.awt.event.KeyEvent.VK_T;
 import static java.awt.event.KeyEvent.VK_P;
 
 import java.awt.event.ActionEvent;
@@ -19,6 +20,8 @@ public class MenuDebugExplorer extends MenuDebug {
 
    protected final PascalSwingCtx psc;
 
+   private BMenuItem              itemConnectTestNet;
+
    public MenuDebugExplorer(PascalSwingCtx psc) {
       super(psc.getSwingCtx());
       this.psc = psc;
@@ -32,6 +35,8 @@ public class MenuDebugExplorer extends MenuDebug {
          //#debug
          sc.toDLog().pAlways("Debug", store, MenuDebugExplorer.class, "actionPerformed", ITechLvl.LVL_08_INFO, false);
 
+      } else if (src == itemConnectTestNet) {
+         psc.getPCtx().getRPCConnection().connectLocalhostTestNet();
       }
    }
 
@@ -42,8 +47,13 @@ public class MenuDebugExplorer extends MenuDebug {
       itemToStringPkStore.setMnemonic(VK_P);
       itemToStringPkStore.setAccelerator(KeyStroke.getKeyStroke(VK_A, modCtrlAltShift));
 
+      itemConnectTestNet = new BMenuItem(sc, this, "menu.debug.connecttestnet");
+      itemConnectTestNet.setMnemonic(VK_T);
+      itemConnectTestNet.setAccelerator(KeyStroke.getKeyStroke(VK_A, modCtrlAltShift));
+
       this.addSeparator();
       this.add(itemToStringPkStore);
+      this.add(itemConnectTestNet);
    }
 
 }
