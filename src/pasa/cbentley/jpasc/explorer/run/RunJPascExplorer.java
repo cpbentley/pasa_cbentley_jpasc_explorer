@@ -44,7 +44,7 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
       pec = new PascExplorerCtx(psc);
       
       //set the current version of the explorer. for the user
-      pec.setVersion("0.0.1");
+      pec.setVersion("1.0.0");
       
       pec.setRunner(this);
    }

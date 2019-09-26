@@ -48,6 +48,7 @@ public class MenuDebugExplorer extends MenuDebug {
       itemToStringPkStore.setAccelerator(KeyStroke.getKeyStroke(VK_A, modCtrlAltShift));
 
       itemConnectTestNet = new BMenuItem(sc, this, "menu.debug.connecttestnet");
+      itemConnectTestNet.setToolTipText("If you run a testnet on default port, you can connect to it");
       itemConnectTestNet.setMnemonic(VK_T);
       itemConnectTestNet.setAccelerator(KeyStroke.getKeyStroke(VK_A, modCtrlAltShift));
 

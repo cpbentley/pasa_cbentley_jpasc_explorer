@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.jpasc.explorer.panel.TabJPascExplorer;
+import pasa.cbentley.jpasc.explorer.panel.about.TabsExplorerAboutRoot;
 import pasa.cbentley.jpasc.swing.menu.MenuBarPascalFactory;
 import pasa.cbentley.swing.imytab.ITabMenuBarFactory;
 import pasa.cbentley.swing.window.CBentleyFrame;
@@ -23,7 +24,6 @@ import pasa.cbentley.swing.window.CBentleyFrame;
  */
 public class MenuBarFactoryExplorer extends MenuBarPascalFactory implements ITabMenuBarFactory {
 
-
    protected final PascExplorerCtx pec;
 
    public MenuBarFactoryExplorer(PascExplorerCtx pec) {
@@ -34,6 +34,9 @@ public class MenuBarFactoryExplorer extends MenuBarPascalFactory implements ITab
    public JMenuBar getMenuBar(Object owner, CBentleyFrame frame) {
       if (owner instanceof TabJPascExplorer) {
          return new MenuBarPascalExplorer(pec, frame);
+      } else if (owner instanceof TabsExplorerAboutRoot) {
+         //we want a menu bar for the about frame
+         return new MenuBarPascalExplorerAbout(pec, frame);
       } else {
          return super.getMenuBar(owner, frame);
       }

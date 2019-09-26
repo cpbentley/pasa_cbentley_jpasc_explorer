@@ -6,21 +6,26 @@
 package pasa.cbentley.jpasc.explorer.menu;
 
 import static java.awt.event.InputEvent.CTRL_DOWN_MASK;
-import static java.awt.event.KeyEvent.*;
+import static java.awt.event.KeyEvent.VK_A;
+import static java.awt.event.KeyEvent.VK_E;
+import static java.awt.event.KeyEvent.VK_F;
+import static java.awt.event.KeyEvent.VK_H;
+import static java.awt.event.KeyEvent.VK_P;
+import static java.awt.event.KeyEvent.VK_Q;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.KeyStroke;
 
+import pasa.cbentley.core.src4.interfaces.ICommandable;
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
-import pasa.cbentley.jpasc.swing.ctx.PascalSwingCtx;
 import pasa.cbentley.jpasc.swing.menu.MenuBarPascalAbstract;
 import pasa.cbentley.swing.ctx.SwingCtx;
-import pasa.cbentley.swing.menu.MenuDebug;
 import pasa.cbentley.swing.menu.MenuLanguage;
 import pasa.cbentley.swing.menu.MenuWindow;
+import pasa.cbentley.swing.widgets.b.BCMenuItem;
 import pasa.cbentley.swing.widgets.b.BMenu;
 import pasa.cbentley.swing.widgets.b.BMenuItem;
 import pasa.cbentley.swing.window.CBentleyFrame;
@@ -31,7 +36,7 @@ import pasa.cbentley.swing.window.CBentleyFrame;
  * @author Charles Bentley
  *
  */
-public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements ActionListener {
+public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements ActionListener,ICommandable {
 
    /**
     * 
@@ -55,6 +60,8 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
    protected final PascExplorerCtx pec;
 
    private BMenuItem               itemAboutFile;
+
+   private BCMenuItem              itemToggle;
 
    public MenuBarPascalExplorer(PascExplorerCtx pec, CBentleyFrame frame) {
       super(pec.getPascalSwingCtx(), frame);
@@ -108,6 +115,11 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
    private void buildMenuFile(SwingCtx sc) {
       menuFile = new BMenu(sc, "menu.explorer");
       menuFile.setMnemonic(VK_F);
+
+      itemToggle = new BCMenuItem<ICommandable>(sc, this, psc.getCmds().getCmdTogglePrivacyCtx());
+      itemToggle.setMnemonic(VK_P);
+      itemToggle.setAccelerator(KeyStroke.getKeyStroke(VK_P, CTRL_DOWN_MASK));
+
       itemExit = new BMenuItem(sc, this, "menu.item.exit");
       itemExit.setMnemonic(VK_E);
       itemExit.setAccelerator(KeyStroke.getKeyStroke(VK_Q, CTRL_DOWN_MASK));
@@ -115,6 +127,8 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
       itemAboutFile = new BMenuItem(sc, this, "menu.item.about");
       itemAboutFile.setAccelerator(KeyStroke.getKeyStroke(VK_A, modCtrlAltShift));
 
+      menuFile.add(itemToggle);
+      menuFile.addSeparator();
       menuFile.add(itemAboutFile);
       menuFile.add(itemExit);
 
