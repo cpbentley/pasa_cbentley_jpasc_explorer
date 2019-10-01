@@ -12,6 +12,8 @@ import static java.awt.event.KeyEvent.VK_F;
 import static java.awt.event.KeyEvent.VK_H;
 import static java.awt.event.KeyEvent.VK_P;
 import static java.awt.event.KeyEvent.VK_Q;
+import static java.awt.event.KeyEvent.VK_T;
+import static java.awt.event.KeyEvent.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +23,7 @@ import javax.swing.KeyStroke;
 import pasa.cbentley.core.src4.interfaces.ICommandable;
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
+import pasa.cbentley.jpasc.swing.cmds.ICommandableConnect;
 import pasa.cbentley.jpasc.swing.menu.MenuBarPascalAbstract;
 import pasa.cbentley.swing.ctx.SwingCtx;
 import pasa.cbentley.swing.menu.MenuLanguage;
@@ -36,32 +39,44 @@ import pasa.cbentley.swing.window.CBentleyFrame;
  * @author Charles Bentley
  *
  */
-public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements ActionListener,ICommandable {
+public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements ActionListener, ICommandable {
 
    /**
     * 
     */
-   private static final long       serialVersionUID = -7322815975196057591L;
+   private static final long               serialVersionUID = -7322815975196057591L;
 
-   private BMenuItem               itemExit;
+   private BMenuItem                       itemExit;
 
-   private MenuDebugExplorer       menuDebug;
+   private MenuDebugExplorer               menuDebug;
 
-   private BMenu                   menuFile;
+   private BMenu                           menuFile;
 
-   private MenuLanguage            menuLanguage;
+   private MenuLanguage                    menuLanguage;
 
-   private MenuWindow              windowMenu;
+   private MenuWindow                      windowMenu;
 
-   private BMenu                   menuHelp;
+   private BMenu                           menuHelp;
 
-   private BMenuItem               itemAboutHelp;
+   private BMenuItem                       itemAboutHelp;
 
-   protected final PascExplorerCtx pec;
+   protected final PascExplorerCtx         pec;
 
-   private BMenuItem               itemAboutFile;
+   private BMenuItem                       itemAboutFile;
 
-   private BCMenuItem              itemToggle;
+   private BCMenuItem                      itemToggle;
+
+   private BCMenuItem<ICommandable>        itemConnectTestNet;
+
+   private BCMenuItem<ICommandable>        itemDisconnect;
+
+   private BCMenuItem<ICommandableConnect> itemConnectRealNet;
+
+   private BMenuItem                       itemDaemonHelp;
+
+   private BCMenuItem<ICommandable> itemLock;
+
+   private BCMenuItem<ICommandable> itemUnLock;
 
    public MenuBarPascalExplorer(PascExplorerCtx pec, CBentleyFrame frame) {
       super(pec.getPascalSwingCtx(), frame);
@@ -98,6 +113,12 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
       } else if (src == itemAboutHelp || src == itemAboutFile) {
          //show the about tab
          pec.cmdShowAboutTab();
+      } else if (src == itemConnectTestNet) {
+         //show the about tab
+         psc.getPCtx().getRPCConnection().connectLocalhostTestNet();
+      } else if (src == itemDaemonHelp) {
+         //show the about tab
+         pec.cmdShowDaemonHelp();
       }
    }
 
@@ -127,9 +148,46 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
       itemAboutFile = new BMenuItem(sc, this, "menu.item.about");
       itemAboutFile.setAccelerator(KeyStroke.getKeyStroke(VK_A, modCtrlAltShift));
 
+      itemDaemonHelp = new BMenuItem(sc, this, "menu.daemon.help");
+      itemDaemonHelp.setAccelerator(KeyStroke.getKeyStroke(VK_H, modCtrlAltShift));
+
+      itemConnectRealNet = new BCMenuItem<ICommandableConnect>(sc, pec, psc.getCmds().getCmdConnectConnect());
+      itemConnectRealNet.setMnemonic(VK_C);
+      itemConnectRealNet.setAccelerator(KeyStroke.getKeyStroke(VK_C, modCtrlAltShift));
+      itemConnectRealNet.startListeningToCmdChanges();
+
+      itemDisconnect = new BCMenuItem<ICommandable>(sc, this, psc.getCmds().getCmdConnectDisconnect());
+      itemDisconnect.setMnemonic(VK_D);
+      itemDisconnect.setAccelerator(KeyStroke.getKeyStroke(VK_D, modCtrlAltShift));
+      itemDisconnect.startListeningToCmdChanges();
+
+      itemConnectTestNet = new BCMenuItem<ICommandable>(sc, this, psc.getCmds().getCmdConnectTestNet());
+      itemConnectTestNet.setMnemonic(VK_T);
+      itemConnectTestNet.setAccelerator(KeyStroke.getKeyStroke(VK_T, modCtrlAltShift));
+      itemConnectTestNet.startListeningToCmdChanges();
+
+      
+      itemLock = new BCMenuItem<ICommandable>(sc, this, psc.getCmds().getCmdLockLock());
+      itemLock.setMnemonic(VK_L);
+      itemLock.setAccelerator(KeyStroke.getKeyStroke(VK_S, modAltShit));
+      
+      itemUnLock = new BCMenuItem<ICommandable>(sc, this, psc.getCmds().getCmdLockUnlock());
+      itemUnLock.setMnemonic(VK_U);
+      itemUnLock.setAccelerator(KeyStroke.getKeyStroke(VK_D, modAltShit));
+      
+      
       menuFile.add(itemToggle);
       menuFile.addSeparator();
       menuFile.add(itemAboutFile);
+      menuFile.add(itemDaemonHelp);
+      menuFile.addSeparator();
+      menuFile.add(itemLock);
+      menuFile.add(itemUnLock);
+      menuFile.addSeparator();
+      menuFile.add(itemConnectRealNet);
+      menuFile.add(itemConnectTestNet);
+      menuFile.add(itemDisconnect);
+      menuFile.addSeparator();
       menuFile.add(itemExit);
 
       this.add(menuFile);

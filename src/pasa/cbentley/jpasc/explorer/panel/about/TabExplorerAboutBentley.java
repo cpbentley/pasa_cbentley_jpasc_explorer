@@ -5,8 +5,6 @@
  */
 package pasa.cbentley.jpasc.explorer.panel.about;
 
-import java.awt.Color;
-
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.swing.gif.ui.AbstractGifTab;
@@ -22,7 +20,7 @@ public class TabExplorerAboutBentley extends AbstractGifTab {
     */
    private static final long   serialVersionUID = 4177675057217095786L;
 
-   private PascExplorerCtx     pec;
+   protected final PascExplorerCtx     pec;
 
    public TabExplorerAboutBentley(PascExplorerCtx pec) {
       super(pec.getPascalSwingCtx().getGifContext(), ID, "/gifs/pascal_frosty_red_alpha_400.gif", KEY_TITLE);

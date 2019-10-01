@@ -13,16 +13,16 @@ import pasa.cbentley.swing.gif.ui.AbstractGifTab;
 
 public class TabExplorerAboutDonation extends AbstractGifTab {
 
-   public static final String  ID               = "about_donations";
+   public static final String      ID               = "about_donations";
 
-   private static final String KEY_TITLE        = "about_donations_title";
+   private static final String     KEY_TITLE        = "about_donations_title";
 
    /**
     * 
     */
-   private static final long   serialVersionUID = 4177675057217095786L;
+   private static final long       serialVersionUID = 4177675057217095786L;
 
-   private PascExplorerCtx     pec;
+   protected final PascExplorerCtx pec;
 
    public TabExplorerAboutDonation(PascExplorerCtx pec) {
       super(pec.getPascalSwingCtx().getGifContext(), ID, "/gifs/pascal_exude_black_256.gif", KEY_TITLE);

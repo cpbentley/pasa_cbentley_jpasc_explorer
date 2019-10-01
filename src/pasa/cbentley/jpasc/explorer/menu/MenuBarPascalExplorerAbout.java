@@ -5,23 +5,14 @@
  */
 package pasa.cbentley.jpasc.explorer.menu;
 
-import static java.awt.event.InputEvent.CTRL_DOWN_MASK;
-import static java.awt.event.KeyEvent.*;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.KeyStroke;
-
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
-import pasa.cbentley.jpasc.swing.ctx.PascalSwingCtx;
 import pasa.cbentley.jpasc.swing.menu.MenuBarPascalAbstract;
 import pasa.cbentley.swing.ctx.SwingCtx;
-import pasa.cbentley.swing.menu.MenuDebug;
-import pasa.cbentley.swing.menu.MenuLanguage;
 import pasa.cbentley.swing.menu.MenuWindow;
-import pasa.cbentley.swing.widgets.b.BMenu;
 import pasa.cbentley.swing.widgets.b.BMenuItem;
 import pasa.cbentley.swing.window.CBentleyFrame;
 
@@ -38,23 +29,17 @@ public class MenuBarPascalExplorerAbout extends MenuBarPascalAbstract implements
     */
    private static final long       serialVersionUID = -7322815975196057591L;
 
+   private BMenuItem               itemAboutFile;
+
+   private BMenuItem               itemAboutHelp;
+
    private BMenuItem               itemExit;
 
    private MenuDebugExplorer       menuDebug;
 
-   private BMenu                   menuFile;
-
-   private MenuLanguage            menuLanguage;
-
-   private MenuWindow              windowMenu;
-
-   private BMenu                   menuHelp;
-
-   private BMenuItem               itemAboutHelp;
-
    protected final PascExplorerCtx pec;
 
-   private BMenuItem               itemAboutFile;
+   private MenuWindow              windowMenu;
 
    public MenuBarPascalExplorerAbout(PascExplorerCtx pec, CBentleyFrame frame) {
       super(pec.getPascalSwingCtx(), frame);
@@ -83,7 +68,6 @@ public class MenuBarPascalExplorerAbout extends MenuBarPascalAbstract implements
       }
    }
 
-
    public void guiUpdate() {
       super.guiUpdate();
    }
@@ -100,10 +84,9 @@ public class MenuBarPascalExplorerAbout extends MenuBarPascalAbstract implements
       toStringPrivate(dc);
       super.toString1Line(dc.sup1Line());
    }
-   //#enddebug
 
    private void toStringPrivate(Dctx dc) {
 
    }
-
+   //#enddebug
 }

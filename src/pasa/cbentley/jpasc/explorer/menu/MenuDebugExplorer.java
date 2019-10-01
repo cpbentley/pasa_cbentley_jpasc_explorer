@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.KeyStroke;
 
 import pasa.cbentley.core.src4.logging.ITechLvl;
+import pasa.cbentley.jpasc.pcore.tools.KeyNameProvider;
 import pasa.cbentley.jpasc.pcore.tools.PkNamesStore;
 import pasa.cbentley.jpasc.swing.ctx.PascalSwingCtx;
 import pasa.cbentley.swing.menu.MenuDebug;
@@ -31,9 +32,9 @@ public class MenuDebugExplorer extends MenuDebug {
       super.actionPerformed(e);
       Object src = e.getSource();
       if (src == itemToStringPkStore) {
-         PkNamesStore store = psc.getPCtx().getPkNameStore();
+         KeyNameProvider stores = psc.getPCtx().getKeyNameProvider();
          //#debug
-         sc.toDLog().pAlways("Debug", store, MenuDebugExplorer.class, "actionPerformed", ITechLvl.LVL_08_INFO, false);
+         sc.toDLog().pAlways("Debug", stores, MenuDebugExplorer.class, "actionPerformed", ITechLvl.LVL_08_INFO, false);
 
       } else if (src == itemConnectTestNet) {
          psc.getPCtx().getRPCConnection().connectLocalhostTestNet();

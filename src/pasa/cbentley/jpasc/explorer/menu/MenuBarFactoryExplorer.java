@@ -8,8 +8,11 @@ package pasa.cbentley.jpasc.explorer.menu;
 import javax.swing.JMenuBar;
 
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
-import pasa.cbentley.jpasc.explorer.panel.TabJPascExplorer;
 import pasa.cbentley.jpasc.explorer.panel.about.TabsExplorerAboutRoot;
+import pasa.cbentley.jpasc.explorer.panel.daemon.TabsNoobGifs;
+import pasa.cbentley.jpasc.explorer.panel.tab.TabConnecting;
+import pasa.cbentley.jpasc.explorer.panel.tab.TabJPascExplorer;
+import pasa.cbentley.jpasc.explorer.panel.tab.TabWaitForDaemon;
 import pasa.cbentley.jpasc.swing.menu.MenuBarPascalFactory;
 import pasa.cbentley.swing.imytab.ITabMenuBarFactory;
 import pasa.cbentley.swing.window.CBentleyFrame;
@@ -37,6 +40,12 @@ public class MenuBarFactoryExplorer extends MenuBarPascalFactory implements ITab
       } else if (owner instanceof TabsExplorerAboutRoot) {
          //we want a menu bar for the about frame
          return new MenuBarPascalExplorerAbout(pec, frame);
+      } else if (owner instanceof TabConnecting) {
+         return null;
+      } else if (owner instanceof TabWaitForDaemon) {
+         return new MenuBarPascalExplorerNoConnection(pec, frame);
+      } else if (owner instanceof TabsNoobGifs) {
+         return new MenuBarPascalExplorerDaemonHelp(pec, frame);
       } else {
          return super.getMenuBar(owner, frame);
       }
