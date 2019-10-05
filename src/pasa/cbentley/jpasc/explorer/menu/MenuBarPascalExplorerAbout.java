@@ -64,7 +64,7 @@ public class MenuBarPascalExplorerAbout extends MenuBarPascalAbstract implements
          psc.getCmds().cmdExit();
       } else if (src == itemAboutHelp || src == itemAboutFile) {
          //show the about tab
-         pec.cmdShowAboutTab();
+         pec.getFrames().cmdShowAboutTab();
       }
    }
 

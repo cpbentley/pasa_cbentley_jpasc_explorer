@@ -33,7 +33,7 @@ public class PanelCtxHelperJExplorer extends PanelCtxHelperAbstract {
    public void actionPerformed(ActionEvent e) {
       //depending on the state
       if (e.getSource() == buttonHelpAbout) {
-         pec.cmdShowAboutTab();
+         pec.getFrames().cmdShowAboutTab();
       }
    }
 

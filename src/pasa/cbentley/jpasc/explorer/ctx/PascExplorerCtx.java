@@ -9,9 +9,12 @@ import java.awt.Image;
 
 import pasa.cbentley.core.src4.ctx.ACtx;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceAbout;
+import pasa.cbentley.jpasc.explorer.frame.FrameReferenceAgreement;
+import pasa.cbentley.jpasc.explorer.frame.FrameReferenceConnecting;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceDaemonHelp;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceExplorer;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceNoConnection;
+import pasa.cbentley.jpasc.explorer.frame.FramesExplorer;
 import pasa.cbentley.jpasc.explorer.menu.MenuBarFactoryExplorer;
 import pasa.cbentley.jpasc.explorer.panel.helper.PanelHelperWaitDaemon;
 import pasa.cbentley.jpasc.explorer.panel.tab.TabJPascExplorer;
@@ -20,21 +23,21 @@ import pasa.cbentley.jpasc.pcore.ctx.PCoreCtx;
 import pasa.cbentley.jpasc.pcore.network.RPCConnection;
 import pasa.cbentley.jpasc.swing.cmds.ICommandableConnect;
 import pasa.cbentley.jpasc.swing.ctx.PascalSwingCtx;
+import pasa.cbentley.jpasc.swing.interfaces.IPrefsPascalSwing;
 import pasa.cbentley.jpasc.swing.panels.core.PanelTabConsoleAlone;
 import pasa.cbentley.swing.actions.IExitable;
 import pasa.cbentley.swing.ctx.SwingCtx;
 
+/**
+ * 
+ * @author Charles Bentley
+ *
+ */
 public class PascExplorerCtx extends ACtx implements IExitable, ICommandableConnect {
 
-   private FrameReferenceAbout        frameReferenceAbout;
+  
 
-   private FrameReferenceNoConnection frameReferenceCon;
-
-   private FrameReferenceDaemonHelp   frameReferenceDaemon;
-
-   private FrameReferenceExplorer     frameReferenceMain;
-
-   private Image imageExplorerLogo64;
+   private Image                      imageExplorerLogo64;
 
    private PanelTabConsoleAlone       panelConsole;
 
@@ -48,13 +51,37 @@ public class PascExplorerCtx extends ACtx implements IExitable, ICommandableConn
 
    private String                     version;
 
+   private ExitTask                   exitTask;
+
+   private FramesExplorer frames;
+
    public PascExplorerCtx(PascalSwingCtx psc) {
       super(psc.getUCtx());
       this.psc = psc;
       this.sc = psc.getSwingCtx();
       SwingCtx sc = psc.getSwingCtx();
+      
+      frames = new FramesExplorer(this);
+
       MenuBarFactoryExplorer menuFactory = new MenuBarFactoryExplorer(this);
       sc.setTabMenuBarFactory(menuFactory);
+      exitTask = new ExitTask(this);
+      
+      
+      //the exitable to be used when all frames are closed
+      psc.getSwingCtx().setExitableMain(exitTask);
+   }
+   
+   public FramesExplorer getFrames() {
+      return frames;
+   }
+
+   /**
+    * 
+    * @return
+    */
+   public ExitTask getExitTask() {
+      return exitTask;
    }
 
    /**
@@ -76,40 +103,10 @@ public class PascExplorerCtx extends ACtx implements IExitable, ICommandableConn
    }
 
    public void cmdExit() {
-      psc.getCmds().cmdExit();
+     
    }
 
-   public void cmdShowAboutTab() {
-      //add the about tab in a frame
-      if (frameReferenceAbout == null) {
-         frameReferenceAbout = new FrameReferenceAbout(this);
-      }
-      frameReferenceAbout.showFrame();
-   }
 
-   public void cmdShowDaemonHelp() {
-      //add the about tab in a frame
-      if (frameReferenceDaemon == null) {
-         frameReferenceDaemon = new FrameReferenceDaemonHelp(this);
-      }
-      frameReferenceDaemon.showFrame();
-   }
-
-   public void cmdShowMainWindow() {
-
-      if (frameReferenceMain == null) {
-         frameReferenceMain = new FrameReferenceExplorer(this);
-      }
-      frameReferenceMain.showFrame();
-   }
-
-   public void cmdShowNoConnection() {
-      //add the about tab in a frame
-      if (frameReferenceCon == null) {
-         frameReferenceCon = new FrameReferenceNoConnection(this);
-      }
-      frameReferenceCon.showFrame();
-   }
 
    public Image getExplorerLogo64() {
       if (imageExplorerLogo64 == null) {
@@ -161,11 +158,26 @@ public class PascExplorerCtx extends ACtx implements IExitable, ICommandableConn
    }
 
    public void showUISuccess() {
-      cmdShowMainWindow();
+      getFrames().cmdShowMainWindow();
    }
 
    public void showUIFailure() {
-      cmdShowNoConnection();
+      getFrames().cmdShowNoConnection();
+   }
+
+   public void cmdAgree() {
+      //show
+      String keyPrefAgree = IPrefsPascalSwing.PREF_AGREE_PREFIX + getVersion();
+      String value = String.valueOf(System.currentTimeMillis());
+      //psc.getPascPrefs().put(keyPrefAgree, value);
+      
+      FrameReferenceConnecting frameConnecting = getFrames().getFrameConnecting();
+      frameConnecting.showFrame();
+      frameConnecting.getTab().cmdConnect();
+      
+      //close frame
+      FrameReferenceAgreement frameAgree = getFrames().getFrameAgreement();
+      frameAgree.closeFrame();
    }
 
 }

@@ -62,7 +62,7 @@ public class PanelHelperWaitDaemon extends PanelPascalRiver implements ActionLis
                labError.setForeground(Color.RED);
                labError.setText("Failed to connect to daemon.");
             } else {
-               pec.cmdShowMainWindow();
+               pec.getFrames().cmdShowMainWindow();
             }
          }
       });

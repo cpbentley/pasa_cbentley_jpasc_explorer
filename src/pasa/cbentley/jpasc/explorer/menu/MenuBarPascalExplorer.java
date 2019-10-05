@@ -112,13 +112,13 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
          psc.getCmds().cmdExit();
       } else if (src == itemAboutHelp || src == itemAboutFile) {
          //show the about tab
-         pec.cmdShowAboutTab();
+         pec.getFrames().cmdShowAboutTab();
       } else if (src == itemConnectTestNet) {
          //show the about tab
          psc.getPCtx().getRPCConnection().connectLocalhostTestNet();
       } else if (src == itemDaemonHelp) {
          //show the about tab
-         pec.cmdShowDaemonHelp();
+         pec.getFrames().cmdShowDaemonHelp();
       }
    }
 

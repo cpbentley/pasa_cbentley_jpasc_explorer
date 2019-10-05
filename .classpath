@@ -13,5 +13,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing_gif"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_dbolet_jpascalcoin_v3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_core_src4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing_images"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

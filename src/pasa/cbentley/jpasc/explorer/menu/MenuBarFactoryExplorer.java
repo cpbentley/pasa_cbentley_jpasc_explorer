@@ -47,7 +47,8 @@ public class MenuBarFactoryExplorer extends MenuBarPascalFactory implements ITab
       } else if (owner instanceof TabsNoobGifs) {
          return new MenuBarPascalExplorerDaemonHelp(pec, frame);
       } else {
-         return super.getMenuBar(owner, frame);
+         //the default menu
+         return new MenuBarPascalExplorerAbout(pec, frame);
       }
    }
 }

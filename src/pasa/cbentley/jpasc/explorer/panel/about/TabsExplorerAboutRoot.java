@@ -7,9 +7,11 @@ package pasa.cbentley.jpasc.explorer.panel.about;
 
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
+import pasa.cbentley.jpasc.explorer.panel.agree.TabsAgreement;
 import pasa.cbentley.jpasc.swing.panels.system.PanelTabNodeCenter;
 import pasa.cbentley.jpasc.swing.panels.system.SystemTab;
 import pasa.cbentley.swing.imytab.TabbedBentleyPanel;
+import pasa.cbentley.swing.panels.PreferenceTab;
 
 public class TabsExplorerAboutRoot extends TabbedBentleyPanel {
    /**
@@ -21,7 +23,7 @@ public class TabsExplorerAboutRoot extends TabbedBentleyPanel {
 
    protected final PascExplorerCtx  pec;
 
-   private TabExplorerLicense       tabExplorerLicense;
+   private TabsAgreement            tabExplorerLicense;
 
    private TabExplorerCredits       tabExplorerCredits;
 
@@ -33,7 +35,9 @@ public class TabsExplorerAboutRoot extends TabbedBentleyPanel {
 
    private PanelTabNodeCenter       tabNodeCenter;
 
-   private SystemTab                systemTab;
+   private SystemTab                tabSystem;
+
+   private PreferenceTab            tabPreferences;
 
    public TabsExplorerAboutRoot(PascExplorerCtx pec) {
       super(pec.getSwingCtx(), ID);
@@ -47,17 +51,19 @@ public class TabsExplorerAboutRoot extends TabbedBentleyPanel {
       tabExplorerDonations = null;
       tabExplorerChangeLog = null;
       tabNodeCenter = null;
-      systemTab = null;
+      tabSystem = null;
+      tabPreferences = null;
    }
 
    public void initTabs() {
       tabExplorerCredits = new TabExplorerCredits(pec);
-      tabExplorerLicense = new TabExplorerLicense(pec);
+      tabExplorerLicense = new TabsAgreement(pec);
       tabExplorerBentley = new TabExplorerAboutBentley(pec);
       tabExplorerDonations = new TabExplorerAboutDonation(pec);
       tabExplorerChangeLog = new TabExplorerChangeLog(pec);
       tabNodeCenter = new PanelTabNodeCenter(pec.getPascalSwingCtx());
-      systemTab = new SystemTab(pec.getPascalSwingCtx().getSwingCtx());
+      tabSystem = new SystemTab(pec.getPascalSwingCtx().getSwingCtx());
+      tabPreferences = new PreferenceTab(pec.getPascalSwingCtx().getSwingCtx());
 
       addMyTab(tabExplorerCredits);
       addMyTab(tabExplorerLicense);
@@ -65,10 +71,11 @@ public class TabsExplorerAboutRoot extends TabbedBentleyPanel {
       addMyTab(tabExplorerDonations);
       addMyTab(tabExplorerChangeLog);
       addMyTab(tabNodeCenter);
-      addMyTab(systemTab);
+      addMyTab(tabSystem);
+      addMyTab(tabPreferences);
 
    }
-   
+
    //#mdebug
    public void toString(Dctx dc) {
       dc.root(this, "TabsExplorerAboutRoot");
@@ -77,7 +84,7 @@ public class TabsExplorerAboutRoot extends TabbedBentleyPanel {
    }
 
    private void toStringPrivate(Dctx dc) {
-      
+
    }
 
    public void toString1Line(Dctx dc) {
@@ -87,7 +94,5 @@ public class TabsExplorerAboutRoot extends TabbedBentleyPanel {
    }
 
    //#enddebug
-   
-
 
 }

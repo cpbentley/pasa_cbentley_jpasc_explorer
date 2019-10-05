@@ -73,7 +73,7 @@ public class MenuBarPascalExplorerNoConnection extends MenuBarPascalAbstract imp
          psc.getCmds().cmdExit();
       } else if (src == itemAboutHelp || src == itemAboutFile) {
          //show the about tab
-         pec.cmdShowAboutTab();
+         pec.getFrames().cmdShowAboutTab();
       }
    }
 

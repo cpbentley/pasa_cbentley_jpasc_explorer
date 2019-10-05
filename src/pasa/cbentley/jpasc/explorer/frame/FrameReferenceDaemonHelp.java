@@ -4,6 +4,7 @@ import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.jpasc.explorer.panel.daemon.TabsNoobGifs;
 import pasa.cbentley.swing.imytab.FrameIMyTab;
+import pasa.cbentley.swing.imytab.FrameReferenceTabAbstract;
 import pasa.cbentley.swing.imytab.IMyTab;
 
 public class FrameReferenceDaemonHelp extends FrameReferenceTabAbstract {

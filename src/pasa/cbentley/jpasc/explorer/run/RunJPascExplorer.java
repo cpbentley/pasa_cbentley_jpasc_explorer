@@ -5,7 +5,6 @@
  */
 package pasa.cbentley.jpasc.explorer.run;
 
-import java.awt.Image;
 import java.util.List;
 
 import pasa.cbentley.core.src4.ctx.UCtx;
@@ -13,19 +12,23 @@ import pasa.cbentley.core.src4.helpers.StringBBuilder;
 import pasa.cbentley.core.src4.interfaces.IPrefs;
 import pasa.cbentley.core.src4.logging.BaseDLogger;
 import pasa.cbentley.core.src4.logging.IConfig;
+import pasa.cbentley.core.src4.logging.ITechTags;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
+import pasa.cbentley.jpasc.explorer.frame.FrameReferenceAgreement;
+import pasa.cbentley.jpasc.explorer.frame.FrameReferenceConnecting;
+import pasa.cbentley.jpasc.explorer.panel.tab.TabAgreement;
 import pasa.cbentley.jpasc.explorer.panel.tab.TabConnecting;
-import pasa.cbentley.jpasc.explorer.panel.tab.TabJPascExplorer;
-import pasa.cbentley.jpasc.explorer.panel.tab.TabWaitForDaemon;
 import pasa.cbentley.jpasc.pcore.ctx.ITechPCore;
-import pasa.cbentley.jpasc.pcore.network.RPCConnection;
 import pasa.cbentley.jpasc.swing.cmds.CmdConnectConnect;
 import pasa.cbentley.jpasc.swing.interfaces.IPrefsPascalSwing;
 import pasa.cbentley.jpasc.swing.others.CentralLogger;
 import pasa.cbentley.jpasc.swing.panels.core.PanelTabConsoleAlone;
+import pasa.cbentley.jpasc.swing.panels.table.abstrakt.TablePanelAbstract;
 import pasa.cbentley.jpasc.swing.run.RunPascalSwingAbstract;
+import pasa.cbentley.swing.ctx.SwingCtx;
+import pasa.cbentley.swing.images.anim.AnimRunnerProducer;
+import pasa.cbentley.swing.images.anim.ui.JComponentAnim;
 import pasa.cbentley.swing.imytab.FrameIMyTab;
-import pasa.cbentley.swing.imytab.IMyTab;
 import pasa.cbentley.swing.window.CBentleyFrame;
 
 /**
@@ -75,7 +78,7 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
 
       //show ui for trying to connect to localhost ? TODO put it up
       psc.applyPrefs(psc.getPascPrefs());
-      
+
       //setup the gui logger so that we log the user log to be active
       PanelTabConsoleAlone panelConsole = new PanelTabConsoleAlone(psc);
       CentralLogger logger = new CentralLogger(psc, panelConsole);
@@ -89,27 +92,20 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
 
       pec.setPanelConsole(panelConsole);
 
-      TabConnecting tabConnecting = new TabConnecting(pec);
-      FrameIMyTab frame = new FrameIMyTab(tabConnecting);
-      //we want the position to be "packed" and shown in the center of the screen
-      
-      
-      frame.setIconImage(pec.getExplorerLogo64());
+      String keyPrefAgree = IPrefsPascalSwing.PREF_AGREE_PREFIX + pec.getVersion();
+      String agree = psc.getPascPrefs().get(keyPrefAgree, "");
 
-      
-      //we want fast gui update for this one, not the whole tree
-      tabConnecting.guiUpdate();
-      sc.showInNewFramePackCenter(frame);
-      
-      //start the call after the setVisible call has been made in the GUI thread
-      sc.executeLaterInUIThread(new Runnable() {
-         public void run() {
-            
-            CmdConnectConnect cmd = pec.getPascalSwingCtx().getCmds().getCmdConnectConnect();
-            cmd.executeWith(pec);
-            frame.setVisible(false);
-         }
-      });
+      FrameReferenceConnecting frameConnecting = pec.getFrames().getFrameConnecting();
+
+      if (agree.length() == 0) {
+         //show the agreement window
+         FrameReferenceAgreement frameAgreement = pec.getFrames().getFrameAgreement();
+         //create a chain action
+         sc.showFrame(frameAgreement);
+      } else {
+         sc.showFrame(frameConnecting);
+      }
+
       return null;
    }
 
@@ -130,6 +126,14 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
 
       //we want to see thread info when debugging workers
       config.setFlagFormat(MASTER_FLAG_07_THREAD_DATA, true);
+
+      config.setFlagTag(ITechTags.FLAG_09_PRINT_FLOW, true);
+      config.setClassNegative(AnimRunnerProducer.class, true);
+      config.setClassNegative(JComponentAnim.class, true);
+      //config.setClassNegative(SwingCtx.class, true);
+      config.setClassNegative(TablePanelAbstract.class, true);
+
+      sc.setResMissingLog(false);
 
    }
    //#enddebug

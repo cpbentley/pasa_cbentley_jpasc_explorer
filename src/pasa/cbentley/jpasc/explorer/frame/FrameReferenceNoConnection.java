@@ -2,8 +2,10 @@ package pasa.cbentley.jpasc.explorer.frame;
 
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
+import pasa.cbentley.jpasc.explorer.panel.tab.TabConnecting;
 import pasa.cbentley.jpasc.explorer.panel.tab.TabWaitForDaemon;
 import pasa.cbentley.swing.imytab.FrameIMyTab;
+import pasa.cbentley.swing.imytab.FrameReferenceTabAbstract;
 import pasa.cbentley.swing.imytab.IMyTab;
 
 public class FrameReferenceNoConnection extends FrameReferenceTabAbstract {

@@ -3,6 +3,11 @@ package pasa.cbentley.jpasc.explorer.panel.about;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.swing.imytab.TabHTMLAbstract;
 
+/**
+ * 
+ * @author Charles Bentley
+ *
+ */
 public class TabExplorerLicense extends TabHTMLAbstract {
 
    /**
@@ -10,7 +15,7 @@ public class TabExplorerLicense extends TabHTMLAbstract {
     */
    private static final long       serialVersionUID = -1381488953929259385L;
 
-   public static final String      ID               = "license";
+   public static final String      ID               = "licensesource";
 
    protected final PascExplorerCtx pec;
 
