@@ -2,7 +2,7 @@
 
 <!-- name is just a string -->
 <!-- basedir="path" is not required. if not present, defaults to the parent directory of the buildfile -->
-<project name="SimplExplorerPASC" default="main" basedir="../">
+<project name="JPascExplorer" default="main" basedir="../">
 	<echo>basedir=${basedir}</echo>
 	
 	<!-- Warning: Make sure the Ant task uses UTF-8! -->
