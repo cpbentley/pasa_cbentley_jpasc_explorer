@@ -7,6 +7,8 @@ package pasa.cbentley.jpasc.explorer.run;
 
 import java.util.List;
 
+import javax.swing.ImageIcon;
+
 import pasa.cbentley.core.src4.ctx.UCtx;
 import pasa.cbentley.core.src4.helpers.StringBBuilder;
 import pasa.cbentley.core.src4.interfaces.IPrefs;
@@ -16,19 +18,15 @@ import pasa.cbentley.core.src4.logging.ITechTags;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceAgreement;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceConnecting;
-import pasa.cbentley.jpasc.explorer.panel.tab.TabAgreement;
-import pasa.cbentley.jpasc.explorer.panel.tab.TabConnecting;
 import pasa.cbentley.jpasc.pcore.ctx.ITechPCore;
-import pasa.cbentley.jpasc.swing.cmds.CmdConnectConnect;
 import pasa.cbentley.jpasc.swing.interfaces.IPrefsPascalSwing;
 import pasa.cbentley.jpasc.swing.others.CentralLogger;
 import pasa.cbentley.jpasc.swing.panels.core.PanelTabConsoleAlone;
 import pasa.cbentley.jpasc.swing.panels.table.abstrakt.TablePanelAbstract;
 import pasa.cbentley.jpasc.swing.run.RunPascalSwingAbstract;
-import pasa.cbentley.swing.ctx.SwingCtx;
 import pasa.cbentley.swing.images.anim.AnimRunnerProducer;
 import pasa.cbentley.swing.images.anim.ui.JComponentAnim;
-import pasa.cbentley.swing.imytab.FrameIMyTab;
+import pasa.cbentley.swing.skin.main.SwingSkinManager;
 import pasa.cbentley.swing.window.CBentleyFrame;
 
 /**
@@ -60,6 +58,19 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
       pec.setRunner(this);
    }
 
+   /**
+    * 
+    */
+   protected void initSkinner() {
+      //load the look and feel before any Swing component
+      SwingSkinManager pascalSkinManager = new SwingSkinManager(ssc);
+      ImageIcon icon = psc.createImageIcon("/icons/logo/pascal_chain_explorer_20.png", "");
+      pascalSkinManager.setDefault("com.jtattoo.plaf.mint.MintLookAndFeel", "Medium-Font");
+      pascalSkinManager.setIconSelected(icon);
+      pascalSkinManager.prefsInit();
+      psc.setSwingSkinManager(pascalSkinManager);
+   }
+
    protected void addI18nPascal(List<String> list) {
       pec.addI18NKey(list);
    }
@@ -69,9 +80,9 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
    }
 
    protected CBentleyFrame initUIThreadInsideSwing() {
-      
+
       sc.setResMissingLog(true);
-      
+
       //we don't want auto lock
       pc.getPrefs().putBoolean(ITechPCore.PKEY_AUTO_LOCK, false);
 
