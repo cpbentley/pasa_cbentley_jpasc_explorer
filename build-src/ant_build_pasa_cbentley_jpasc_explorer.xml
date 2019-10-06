@@ -39,7 +39,7 @@
 	<property name="release_dir" location="releases" />
 
 	<property name="project_name" value="SimplExplorer for PascalCoin" />
-	<property name="jar_name" value="SimplExplorerPASC" />
+	<property name="jar_name" value="JPascExplorer" />
 	<property name="version" value="1.0"/>
 
 	<property name="main_package" value="pasa.cbentley.jpasc.explorer" />
@@ -119,6 +119,7 @@
 		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_swing_gif/src" />
 		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_jpasc_pcore/src" />
 		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_jpasc_swing/src" />
+		<simplepreprocess destdir="${src_preprocessed}" encoding="UTF-8" verbose="false" srcdir="${workspace_src}/pasa_cbentley_swing_skin/src" />
 		<!-- insert here more source paths -->
 	</target>
 
@@ -148,6 +149,7 @@
 			<src path="${workspace_src}/pasa_cbentley_jpasc_pcore/src" />
 			<src path="${workspace_src}/pasa_jtattoo/src" />
 			<src path="${workspace_src}/pasa_cbentley_jpasc_swing/src" />
+			<src path="${workspace_src}/pasa_cbentley_swing_skin/src" />
 				
 			<classpath refid="classpath" />
 		</javac>
@@ -164,6 +166,7 @@
 			
 			<!-- add dependencies res folders-->		
 			<fileset dir="${workspace_src}/pasa_cbentley_swing/res" excludes="**/*.java"/>
+			<fileset dir="${workspace_src}/pasa_cbentley_swing_skin/res" excludes="**/*.java"/>
 			<!-- we don't want swing gifs -->
 			<fileset dir="${workspace_src}/pasa_cbentley_swing_gif/res" excludes="**/*.gif"/>
 			<fileset dir="${workspace_src}/pasa_cbentley_jpasc_swing/res" excludes="**/*.java"/>
@@ -190,14 +193,16 @@
 			
 			<!-- add dependencies res folders-->		
 			<fileset dir="${workspace_src}/pasa_cbentley_swing/res" excludes=""/>
+			<fileset dir="${workspace_src}/pasa_cbentley_swing_skin/res" excludes=""/>
 			<!-- we don't want swing gifs -->
 			<fileset dir="${workspace_src}/pasa_cbentley_swing_gif/res" excludes="**/*.gif"/>
 			<fileset dir="${workspace_src}/pasa_cbentley_jpasc_swing/res" excludes=""/>
 			<fileset dir="${workspace_src}/pasa_cbentley_jpasc_pcore/res" excludes=""/>
 			<!-- jtatto puts images in folder so we need to copy those as well -->
 			<fileset dir="${workspace_src}/pasa_jtattoo/src" excludes=""/>
-			<zipgroupfileset dir="${workspace_src}/pasa_cbentley_jpasc_swing/libs" includes="**/*sources.jar"/>
-			<zipgroupfileset dir="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs" includes="**/*sources.jar"/>
+			<fileset dir="${workspace_src}/pasa_dbolet_jpascalcoin_v3/src" excludes=""/>
+			<zipgroupfileset dir="${workspace_src}/pasa_cbentley_jpasc_swing/libs" includes="**/*sources.jar,**/*src.jar"/>
+			<zipgroupfileset dir="${workspace_src}/pasa_dbolet_jpascalcoin_v3/libs" includes="**/*sources.jar,**/*src.jar"/>
 			<manifest>
  				<attribute name="Built-Date" value="${TODAY}"/>
 			</manifest>
