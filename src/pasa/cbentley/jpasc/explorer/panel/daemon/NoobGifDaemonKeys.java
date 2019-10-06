@@ -11,7 +11,7 @@ import pasa.cbentley.swing.gif.ui.AbstractGifTab;
  * @author Charles Bentley
  *
  */
-public class NoobGifDaemonKeys extends AbstractGifTab implements IWizardNoob {
+public class NoobGifDaemonKeys extends AbstractGifTab  {
 
    public static final String ID = "noob_daemon_keys";
 
@@ -21,10 +21,6 @@ public class NoobGifDaemonKeys extends AbstractGifTab implements IWizardNoob {
       super(psc.getGifContext(), ID, "/gifs/create_new_key.gif", "noob.daemon.keys");
       this.psc = psc;
 
-   }
-
-   public void cmdShowNoobWizard(Object caller) {
-      psc.showInNewFrameRelToFrameRoot(this);
    }
 
    public String getID() {

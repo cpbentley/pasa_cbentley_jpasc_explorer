@@ -29,11 +29,6 @@ public class MenuBarPascalExplorerAbout extends MenuBarPascalAbstract implements
     */
    private static final long       serialVersionUID = -7322815975196057591L;
 
-   private BMenuItem               itemAboutFile;
-
-   private BMenuItem               itemAboutHelp;
-
-   private BMenuItem               itemExit;
 
    private MenuDebugExplorer       menuDebug;
 
@@ -59,13 +54,6 @@ public class MenuBarPascalExplorerAbout extends MenuBarPascalAbstract implements
    }
 
    public void actionPerformed(ActionEvent e) {
-      Object src = e.getSource();
-      if (src == itemExit) {
-         psc.getCmds().cmdExit();
-      } else if (src == itemAboutHelp || src == itemAboutFile) {
-         //show the about tab
-         pec.getFrames().cmdShowAboutTab();
-      }
    }
 
    public void guiUpdate() {

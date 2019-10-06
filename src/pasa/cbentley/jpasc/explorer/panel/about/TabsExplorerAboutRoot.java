@@ -8,6 +8,7 @@ package pasa.cbentley.jpasc.explorer.panel.about;
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.jpasc.explorer.panel.agree.TabsAgreement;
+import pasa.cbentley.jpasc.explorer.panel.tab.TabAgreement;
 import pasa.cbentley.jpasc.swing.panels.system.PanelTabNodeCenter;
 import pasa.cbentley.jpasc.swing.panels.system.SystemTab;
 import pasa.cbentley.swing.imytab.TabbedBentleyPanel;
@@ -23,7 +24,7 @@ public class TabsExplorerAboutRoot extends TabbedBentleyPanel {
 
    protected final PascExplorerCtx  pec;
 
-   private TabsAgreement            tabExplorerLicense;
+   private TabAgreement             tabExplorerLicense;
 
    private TabExplorerCredits       tabExplorerCredits;
 
@@ -57,7 +58,7 @@ public class TabsExplorerAboutRoot extends TabbedBentleyPanel {
 
    public void initTabs() {
       tabExplorerCredits = new TabExplorerCredits(pec);
-      tabExplorerLicense = new TabsAgreement(pec);
+      tabExplorerLicense = new TabAgreement(pec);
       tabExplorerBentley = new TabExplorerAboutBentley(pec);
       tabExplorerDonations = new TabExplorerAboutDonation(pec);
       tabExplorerChangeLog = new TabExplorerChangeLog(pec);

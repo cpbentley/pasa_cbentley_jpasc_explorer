@@ -49,7 +49,8 @@ public class PanelHelperAgreement extends PanelPascalRiver implements ActionList
       if (src == butAgreeYes) {
          pec.cmdAgree();
       } else if (src == butAgreeNo) {
-         System.exit(0);
+         pec.cmdAgreeNo();
+         
       }
    }
 

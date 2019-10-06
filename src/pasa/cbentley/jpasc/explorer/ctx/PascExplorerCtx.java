@@ -6,6 +6,7 @@
 package pasa.cbentley.jpasc.explorer.ctx;
 
 import java.awt.Image;
+import java.util.List;
 
 import pasa.cbentley.core.src4.ctx.ACtx;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceAbout;
@@ -33,45 +34,42 @@ import pasa.cbentley.swing.ctx.SwingCtx;
  * @author Charles Bentley
  *
  */
-public class PascExplorerCtx extends ACtx implements IExitable, ICommandableConnect {
+public class PascExplorerCtx extends ACtx implements ICommandableConnect {
 
-  
+   private Image                  imageExplorerLogo64;
 
-   private Image                      imageExplorerLogo64;
+   private PanelTabConsoleAlone   panelConsole;
 
-   private PanelTabConsoleAlone       panelConsole;
+   protected final PascalSwingCtx psc;
 
-   protected final PascalSwingCtx     psc;
+   private RunJPascExplorer       runner;
 
-   private RunJPascExplorer           runner;
+   protected final SwingCtx       sc;
 
-   protected final SwingCtx           sc;
+   private TabJPascExplorer       tabExplorer;
 
-   private TabJPascExplorer           tabExplorer;
+   private String                 version;
 
-   private String                     version;
+   private ExitTaskJPascExplorer  exitTask;
 
-   private ExitTask                   exitTask;
-
-   private FramesExplorer frames;
+   private FramesExplorer         frames;
 
    public PascExplorerCtx(PascalSwingCtx psc) {
       super(psc.getUCtx());
       this.psc = psc;
       this.sc = psc.getSwingCtx();
       SwingCtx sc = psc.getSwingCtx();
-      
+
       frames = new FramesExplorer(this);
 
       MenuBarFactoryExplorer menuFactory = new MenuBarFactoryExplorer(this);
       sc.setTabMenuBarFactory(menuFactory);
-      exitTask = new ExitTask(this);
-      
-      
+      exitTask = new ExitTaskJPascExplorer(this);
+
       //the exitable to be used when all frames are closed
       psc.getSwingCtx().setExitableMain(exitTask);
    }
-   
+
    public FramesExplorer getFrames() {
       return frames;
    }
@@ -80,7 +78,7 @@ public class PascExplorerCtx extends ACtx implements IExitable, ICommandableConn
     * 
     * @return
     */
-   public ExitTask getExitTask() {
+   public ExitTaskJPascExplorer getExitTask() {
       return exitTask;
    }
 
@@ -101,12 +99,6 @@ public class PascExplorerCtx extends ACtx implements IExitable, ICommandableConn
 
       return false;
    }
-
-   public void cmdExit() {
-     
-   }
-
-
 
    public Image getExplorerLogo64() {
       if (imageExplorerLogo64 == null) {
@@ -169,15 +161,27 @@ public class PascExplorerCtx extends ACtx implements IExitable, ICommandableConn
       //show
       String keyPrefAgree = IPrefsPascalSwing.PREF_AGREE_PREFIX + getVersion();
       String value = String.valueOf(System.currentTimeMillis());
-      //psc.getPascPrefs().put(keyPrefAgree, value);
-      
-      FrameReferenceConnecting frameConnecting = getFrames().getFrameConnecting();
-      frameConnecting.showFrame();
-      frameConnecting.getTab().cmdConnect();
-      
+      psc.getPascPrefs().put(keyPrefAgree, value);
+
+      //if not already connected
+      if (getFrames().getFrameMainWindow().isInactive()) {
+         FrameReferenceConnecting frameConnecting = getFrames().getFrameConnecting();
+         frameConnecting.showFrame();
+         frameConnecting.getTab().cmdConnect();
+      }
       //close frame
       FrameReferenceAgreement frameAgree = getFrames().getFrameAgreement();
       frameAgree.closeFrame();
+   }
+
+   public void cmdAgreeNo() {
+      String keyPrefAgree = IPrefsPascalSwing.PREF_AGREE_PREFIX + getVersion();
+      psc.getPascPrefs().put(keyPrefAgree, "");
+      System.exit(0);
+   }
+
+   public void addI18NKey(List<String> list) {
+      list.add("i18nJPascExplorer");      
    }
 
 }

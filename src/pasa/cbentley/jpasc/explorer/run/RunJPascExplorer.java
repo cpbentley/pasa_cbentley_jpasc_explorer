@@ -61,7 +61,7 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
    }
 
    protected void addI18nPascal(List<String> list) {
-      list.add("i18nJPascExplorer");
+      pec.addI18NKey(list);
    }
 
    protected void initForPrefsPascal(IPrefs prefs) {
@@ -69,6 +69,9 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
    }
 
    protected CBentleyFrame initUIThreadInsideSwing() {
+      
+      sc.setResMissingLog(true);
+      
       //we don't want auto lock
       pc.getPrefs().putBoolean(ITechPCore.PKEY_AUTO_LOCK, false);
 
@@ -101,9 +104,10 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
          //show the agreement window
          FrameReferenceAgreement frameAgreement = pec.getFrames().getFrameAgreement();
          //create a chain action
-         sc.showFrame(frameAgreement);
+         frameAgreement.showFrame();
       } else {
-         sc.showFrame(frameConnecting);
+         frameConnecting.showFrame();
+         frameConnecting.getTab().cmdConnect();
       }
 
       return null;

@@ -74,9 +74,9 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
 
    private BMenuItem                       itemDaemonHelp;
 
-   private BCMenuItem<ICommandable> itemLock;
+   private BCMenuItem<ICommandable>        itemLock;
 
-   private BCMenuItem<ICommandable> itemUnLock;
+   private BCMenuItem<ICommandable>        itemUnLock;
 
    public MenuBarPascalExplorer(PascExplorerCtx pec, CBentleyFrame frame) {
       super(pec.getPascalSwingCtx(), frame);
@@ -109,7 +109,8 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
    public void actionPerformed(ActionEvent e) {
       Object src = e.getSource();
       if (src == itemExit) {
-         psc.getCmds().cmdExit();
+         CBentleyFrame frame = (CBentleyFrame) psc.getSwingCtx().getFrame(this);
+         frame.cmdClose();
       } else if (src == itemAboutHelp || src == itemAboutFile) {
          //show the about tab
          pec.getFrames().cmdShowAboutTab();
@@ -166,16 +167,14 @@ public class MenuBarPascalExplorer extends MenuBarPascalAbstract implements Acti
       itemConnectTestNet.setAccelerator(KeyStroke.getKeyStroke(VK_T, modCtrlAltShift));
       itemConnectTestNet.startListeningToCmdChanges();
 
-      
       itemLock = new BCMenuItem<ICommandable>(sc, this, psc.getCmds().getCmdLockLock());
       itemLock.setMnemonic(VK_L);
       itemLock.setAccelerator(KeyStroke.getKeyStroke(VK_S, modAltShit));
-      
+
       itemUnLock = new BCMenuItem<ICommandable>(sc, this, psc.getCmds().getCmdLockUnlock());
       itemUnLock.setMnemonic(VK_U);
       itemUnLock.setAccelerator(KeyStroke.getKeyStroke(VK_D, modAltShit));
-      
-      
+
       menuFile.add(itemToggle);
       menuFile.addSeparator();
       menuFile.add(itemAboutFile);

@@ -29,12 +29,6 @@ public class MenuBarPascalExplorerDaemonHelp extends MenuBarPascalAbstract imple
     */
    private static final long       serialVersionUID = -7322815975196057591L;
 
-   private BMenuItem               itemAboutFile;
-
-   private BMenuItem               itemAboutHelp;
-
-   private BMenuItem               itemExit;
-
    private MenuDebugExplorer       menuDebug;
 
    protected final PascExplorerCtx pec;
@@ -59,13 +53,6 @@ public class MenuBarPascalExplorerDaemonHelp extends MenuBarPascalAbstract imple
    }
 
    public void actionPerformed(ActionEvent e) {
-      Object src = e.getSource();
-      if (src == itemExit) {
-         psc.getCmds().cmdExit();
-      } else if (src == itemAboutHelp || src == itemAboutFile) {
-         //show the about tab
-         pec.getFrames().cmdShowAboutTab();
-      }
    }
 
    public void guiUpdate() {

@@ -38,17 +38,11 @@ public class MenuBarPascalExplorerNoConnection extends MenuBarPascalAbstract imp
     */
    private static final long       serialVersionUID = -7322815975196057591L;
 
-   private BMenuItem               itemExit;
-
    private MenuDebugExplorer       menuDebug;
 
    private MenuWindow              windowMenu;
 
-   private BMenuItem               itemAboutHelp;
-
    protected final PascExplorerCtx pec;
-
-   private BMenuItem               itemAboutFile;
 
    public MenuBarPascalExplorerNoConnection(PascExplorerCtx pec, CBentleyFrame frame) {
       super(pec.getPascalSwingCtx(), frame);
@@ -68,13 +62,6 @@ public class MenuBarPascalExplorerNoConnection extends MenuBarPascalAbstract imp
    }
 
    public void actionPerformed(ActionEvent e) {
-      Object src = e.getSource();
-      if (src == itemExit) {
-         psc.getCmds().cmdExit();
-      } else if (src == itemAboutHelp || src == itemAboutFile) {
-         //show the about tab
-         pec.getFrames().cmdShowAboutTab();
-      }
    }
 
    public void guiUpdate() {
