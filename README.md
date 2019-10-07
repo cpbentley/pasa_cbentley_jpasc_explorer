@@ -15,6 +15,8 @@ Quote by Christopher Columbus
 
 Stand alone GUI for exploring the Pascal chain.
 
+![github_template_pascal_expl.jpg](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/github_template_pascal_expl.jpg)
+
 ## Software requirements
 
 1. Java 8
@@ -33,11 +35,46 @@ Stand alone GUI for exploring the Pascal chain.
 
 ![explorer_ss1_sales_sort_pri.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss1_sales_sort_pri.png)
 
+![explorer_ss2_rich_list.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss2_rich_list.png)
+
+![explorer_ss3_account_detail.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss3_account_detail.png)
+
+![explorer_ss4_pink.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss4_pink.png)
+
 ![explorer_ss5_triple_sort.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss5_triple_sort.png)
+
+![explorer_ss6_donations.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss6_donations.png)
 
 ## Latest Release
 
 [↑](#table-of-contents)
+
+#### 1.0.4
+
+![JPascExplorer-1.0.4-pro.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.0.4-pro.jar)
+
+![JPascExplorer-1.0.4-pro-sources.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.0.4-pro-sources.jar)
+
+### Run .jar Binary
+
+Make sure Java is installed. Either on the command line or using the user interface
+
+With the cmd line, go to the folder where the jar is and
+
+java -jar JPascExplorer-1.0.4-pro.jar
+
+With the gui in Windows
+
+![jpasc_explorer_running_from_windows.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/jpasc_explorer_running_from_windows.png)
+
+
+
+### Build sources
+
+Do not trust, verify!
+
+The source jar includes every single source files, including all library sources. Unpack the sources.jar
+into a bare eclipse Java project and it will run from there.
 
 ## Installation
 
@@ -147,6 +184,8 @@ Right click on it and select Run As
 ## Links
 
  * [Proguard Official Sourceforge Repository](https://sourceforge.net/projects/proguard/ "Proguard on sourceforge.net")
+ * [Pascal RPC Wiki](https://www.pascalcoin.org/development/rpc "Pascal RPC Wiki")
+ * [Free PASA: Official Pascal Account Distribution](https://freepasa.org/ "Free PASA: Official Pascal Account Distribution")
 
 
 [table of contents](#table-of-contents)
