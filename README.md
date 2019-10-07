@@ -11,7 +11,7 @@ modified | ![GitHub last commit](https://img.shields.io/github/last-commit/cpben
 Quote by Christopher Columbus
 > Following the light of the sun, we left the Old World.
 
-# Simple PascalCoin Blockchain Explorer
+# JPasc Explorer : Pascal Blockchain Explorer
 
 Stand alone GUI for exploring the Pascal chain.
 
@@ -28,6 +28,12 @@ Stand alone GUI for exploring the Pascal chain.
   * [Run in Eclipse](#run-in-eclipse)
 
 ***
+
+## Screenshots
+
+![explorer_ss1_sales_sort_pri.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss1_sales_sort_pri.png)
+
+![explorer_ss5_triple_sort.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss5_triple_sort.png)
 
 ## Latest Release
 
