@@ -33,6 +33,8 @@ Stand alone GUI for exploring the Pascal chain.
 
 ## Screenshots
 
+![explorer_ss7_poloniex.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss7_poloniex.png)
+
 ![explorer_ss1_sales_sort_pri.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss1_sales_sort_pri.png)
 
 ![explorer_ss2_rich_list.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss2_rich_list.png)
