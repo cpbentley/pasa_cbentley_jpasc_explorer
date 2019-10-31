@@ -43,6 +43,8 @@ Stand alone GUI for exploring the Pascal chain.
 
 ![explorer_ss4_pink.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss4_pink.png)
 
+![explorer_ss8_flatlaf.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss8_flatlaf.png)
+
 ![explorer_ss5_triple_sort.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss5_triple_sort.png)
 
 ![explorer_ss6_donations.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss6_donations.png)
