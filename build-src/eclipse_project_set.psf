@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<psf version="2.0">
+<provider id="org.eclipse.egit.core.GitProvider">
+<project reference="1.0,https://github.com/cpbentley/java_src4_compat_j2se,master,."/>
+<project reference="1.0,https://github.com/cpbentley/JFormDesigner_FlatLaf,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_byteobjects_src4,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_core_src4,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_core_src5,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_core_src8,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_jpasc_explorer,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_jpasc_pcore,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_jpasc_swing,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_swing,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_swing_gif,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_swing_images,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_cbentley_swing_skin,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_dbolet_jpascalcoin_v3,master,."/>
+<project reference="1.0,https://github.com/cpbentley/pasa_jtattoo,master,."/>
+</provider>
+<workingSets editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" id="1564233018824_3" label="PascalCoin Explorer" name="PascalCoin Explorer">
+<item elementID="=java_src4_compat_j2se" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_dbolet_jpascalcoin_v3" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_swing_skin" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_jpasc_pcore" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_core_src4" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_core_src8" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_byteobjects_src4" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_jpasc_swing" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_swing_gif" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_jtattoo" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=JFormDesigner_FlatLaf" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_swing" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_swing_images" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_core_src5" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=pasa_cbentley_jpasc_explorer" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSets>
+</psf>
