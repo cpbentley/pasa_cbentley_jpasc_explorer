@@ -13,7 +13,7 @@ import pasa.cbentley.core.src4.ctx.UCtx;
 import pasa.cbentley.core.src4.helpers.StringBBuilder;
 import pasa.cbentley.core.src4.interfaces.IPrefs;
 import pasa.cbentley.core.src4.logging.BaseDLogger;
-import pasa.cbentley.core.src4.logging.IConfig;
+import pasa.cbentley.core.src4.logging.IDLogConfig;
 import pasa.cbentley.core.src4.logging.ITechTags;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceAgreement;
@@ -131,7 +131,7 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
    //#mdebug
    protected void toStringSetupLogger(UCtx uc) {
       BaseDLogger loggerFirst = (BaseDLogger) uc.toDLog();
-      IConfig config = loggerFirst.getDefault().getConfig();
+      IDLogConfig config = loggerFirst.getDefault().getConfig();
       config.setLevelGlobal(LVL_05_FINE);
       config.setLevelTag(LVL_03_FINEST, FLAG_09_PRINT_FLOW);
       config.setLevelTag(LVL_03_FINEST, FLAG_06_PRINT_WORK);
