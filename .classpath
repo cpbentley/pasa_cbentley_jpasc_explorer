@@ -15,5 +15,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_core_src4"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing_images"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing_skin"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_core_j2se"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_core_swing"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

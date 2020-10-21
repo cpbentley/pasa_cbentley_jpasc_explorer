@@ -188,7 +188,7 @@ public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
       dc.root1Line(this, "TabJPascExplorer");
       toStringPrivate(dc);
       super.toString1Line(dc.sup1Line());
-      dc.nlLvlOneLine(chainExplorer, "chainExplorer");
+      dc.nlLvl1Line(chainExplorer, "chainExplorer");
    }
 
    //#enddebug
