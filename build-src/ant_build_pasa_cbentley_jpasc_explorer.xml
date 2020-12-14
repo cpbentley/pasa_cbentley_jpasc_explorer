@@ -40,7 +40,7 @@
 
 	<property name="project_name" value="SimplExplorer for PascalCoin" />
 	<property name="jar_name" value="JPascExplorer" />
-	<property name="version" value="1.0"/>
+	<property name="version" value="1.1"/>
 
 	<property name="main_package" value="pasa.cbentley.jpasc.explorer" />
 	<property name="main_class" value="${main_package}.run.RunJPascExplorer" />
