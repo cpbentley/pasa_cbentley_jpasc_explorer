@@ -18,6 +18,9 @@ import pasa.cbentley.core.src4.logging.ITechTags;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceAgreement;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceConnecting;
+import pasa.cbentley.jpasc.jsonrpc.ctx.JPascJsonRpcCtx;
+import pasa.cbentley.jpasc.jsonrpc.engine.JPascJsonRPCClientFactory;
+import pasa.cbentley.jpasc.pcore.ctx.IPascalCoinClientFactory;
 import pasa.cbentley.jpasc.pcore.ctx.ITechPCore;
 import pasa.cbentley.jpasc.swing.interfaces.IPrefsPascalSwing;
 import pasa.cbentley.jpasc.swing.others.CentralLogger;
@@ -52,8 +55,13 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
       super();
       pec = new PascExplorerCtx(psc);
 
+      //we decide here what to use for RPC lib
+      JPascJsonRpcCtx jjc = new JPascJsonRpcCtx(pc);
+      IPascalCoinClientFactory fac = new JPascJsonRPCClientFactory(jjc);
+      psc.getPCtx().setPascalCoinClientFactory(fac);
+      
       //set the current version of the explorer. for the user
-      pec.setVersion("1.0.0");
+      pec.setVersion("1.1.0");
 
       pec.setRunner(this);
    }
@@ -103,9 +111,13 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
       message.append(pec.getVersion());
       message.append(". For updates visit https://github.com/cpbentley/pasa_cbentley_jpasc_explorer");
       logger.consoleLogDate(message.toString());
-
       pec.setPanelConsole(panelConsole);
 
+      message = sc.getSBBuilder();
+      message.append("This software has been built for Pascal Full Node Wallet 5.3. Other versions are not supported.");
+      logger.consoleLogDate(message.toString());
+      pec.setPanelConsole(panelConsole);
+      
       String keyPrefAgree = IPrefsPascalSwing.PREF_AGREE_PREFIX + pec.getVersion();
       String agree = psc.getPascPrefs().get(keyPrefAgree, "");
 

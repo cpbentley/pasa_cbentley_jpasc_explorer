@@ -7,19 +7,17 @@ package pasa.cbentley.jpasc.explorer.panel.tab;
 
 import java.awt.BorderLayout;
 
-import com.github.davidbolet.jpascalcoin.api.model.Account;
-import com.github.davidbolet.jpascalcoin.api.model.Block;
-import com.github.davidbolet.jpascalcoin.api.model.PublicKey;
-
 import pasa.cbentley.core.src4.ctx.UCtx;
 import pasa.cbentley.core.src4.logging.Dctx;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.jpasc.explorer.panel.helper.PanelCtxHelperJExplorer;
 import pasa.cbentley.jpasc.pcore.domain.java.PublicKeyJava;
 import pasa.cbentley.jpasc.pcore.interfaces.IAccessPascal;
+import pasa.cbentley.jpasc.pcore.rpc.model.Account;
+import pasa.cbentley.jpasc.pcore.rpc.model.Block;
+import pasa.cbentley.jpasc.pcore.rpc.model.PublicKey;
 import pasa.cbentley.jpasc.swing.ctx.PascalSwingCtx;
 import pasa.cbentley.jpasc.swing.interfaces.IRootTabPane;
-import pasa.cbentley.jpasc.swing.others.CentralLogger;
 import pasa.cbentley.jpasc.swing.panels.core.PanelTabConsoleAlone;
 import pasa.cbentley.jpasc.swing.panels.core.PanelTabLogin;
 import pasa.cbentley.jpasc.swing.panels.core.PanelTabLoginConsole;
@@ -33,26 +31,26 @@ import pasa.cbentley.swing.imytab.AbstractMyTab;
  */
 public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
 
+   public static final String      ID               = "jpasc_explorer";
+
    /**
     * 
     */
    private static final long       serialVersionUID = -4520926230634085959L;
 
-   public static final String      ID               = "jpasc_explorer";
+   private TabsChainExplorer       chainExplorer;
+
+   private PanelTabLogin           loginPanel;
+
+   private PanelTabConsoleAlone    panelConsole;
+
+   private PanelTabLoginConsole    panelTabLoginConsole;
 
    protected final PascExplorerCtx pec;
 
    protected final PascalSwingCtx  psc;
 
-   private TabsChainExplorer       chainExplorer;
-
-   private PanelTabConsoleAlone    panelConsole;
-
-   private PanelTabLogin           loginPanel;
-
    protected final UCtx            uc;
-
-   private PanelTabLoginConsole    panelTabLoginConsole;
 
    public TabJPascExplorer(PascExplorerCtx pec) {
       super(pec.getSwingCtx(), ID);
@@ -62,28 +60,43 @@ public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
 
    }
 
-   public void tabLostFocus() {
-      //#debug
-      toDLog().pFlow("", this, TabJPascExplorer.class, "tabLostFocus", LVL_05_FINE, true);
-      if (chainExplorer != null) {
-         chainExplorer.tabLostFocus();
-      }
-   }
-
-   public void tabGainFocus() {
-      //#debug
-      toDLog().pFlow("", this, TabJPascExplorer.class, "tabGainFocus", LVL_05_FINE, true);
-      if (chainExplorer != null) {
-         chainExplorer.tabGainFocus();
-      }
-   }
-
    public void disposeTab() {
 
    }
 
-   public void setConsole(PanelTabConsoleAlone console) {
-      this.panelConsole = console;
+   public IAccessPascal getAccessPascal() {
+      initCheck();
+      return chainExplorer.getAccessPascal();
+   }
+
+   public Integer getAccountLast() {
+      initCheck();
+      return chainExplorer.getAccountLast();
+   }
+
+   public Integer getAccountNext(Integer account) {
+      initCheck();
+      return chainExplorer.getAccountNext(account);
+   }
+
+   public Integer getAccountPrev(Integer account) {
+      initCheck();
+      return chainExplorer.getAccountPrev(account);
+   }
+
+   public Integer getBlockLast() {
+      initCheck();
+      return chainExplorer.getBlockLast();
+   }
+
+   public Integer getBlockNext(Integer block) {
+      initCheck();
+      return chainExplorer.getBlockNext(block);
+   }
+
+   public Integer getBlockPrev(Integer block) {
+      initCheck();
+      return chainExplorer.getBlockNext(block);
    }
 
    protected void initTab() {
@@ -108,19 +121,8 @@ public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
       panelTabLoginConsole.setPanelCenter(chainExplorer);
    }
 
-   public Integer getAccountNext(Integer account) {
-      initCheck();
-      return chainExplorer.getAccountNext(account);
-   }
-
-   public Integer getAccountPrev(Integer account) {
-      initCheck();
-      return chainExplorer.getAccountPrev(account);
-   }
-
-   public IAccessPascal getAccessPascal() {
-      initCheck();
-      return chainExplorer.getAccessPascal();
+   public void setConsole(PanelTabConsoleAlone console) {
+      this.panelConsole = console;
    }
 
    public void showAccountDetails(Account ac) {
@@ -153,6 +155,12 @@ public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
       chainExplorer.showBlock(ac);
    }
 
+   public void showBlockDetails(Block ac) {
+      initCheck();
+      //we don't support block UI at this level.. we must use parent
+      chainExplorer.showBlockDetails(ac);
+   }
+
    public void showPublicKeyAccounts(PublicKey pk) {
       initCheck();
       //must not be null of after init
@@ -171,6 +179,22 @@ public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
       chainExplorer.showPublicKeyJavaAccounts(pk);
    }
 
+   public void tabGainFocus() {
+      //#debug
+      toDLog().pFlow("", this, TabJPascExplorer.class, "tabGainFocus", LVL_05_FINE, true);
+      if (chainExplorer != null) {
+         chainExplorer.tabGainFocus();
+      }
+   }
+
+   public void tabLostFocus() {
+      //#debug
+      toDLog().pFlow("", this, TabJPascExplorer.class, "tabLostFocus", LVL_05_FINE, true);
+      if (chainExplorer != null) {
+         chainExplorer.tabLostFocus();
+      }
+   }
+
    //#mdebug
    public void toString(Dctx dc) {
       dc.root(this, "TabJPascExplorer");
@@ -180,15 +204,15 @@ public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
       dc.nlLvl(panelTabLoginConsole, "panelTabLoginConsole");
    }
 
-   private void toStringPrivate(Dctx dc) {
-
-   }
-
    public void toString1Line(Dctx dc) {
       dc.root1Line(this, "TabJPascExplorer");
       toStringPrivate(dc);
       super.toString1Line(dc.sup1Line());
       dc.nlLvl1Line(chainExplorer, "chainExplorer");
+   }
+
+   private void toStringPrivate(Dctx dc) {
+
    }
 
    //#enddebug

@@ -9,12 +9,8 @@ import java.awt.Image;
 import java.util.List;
 
 import pasa.cbentley.core.src4.ctx.ACtx;
-import pasa.cbentley.jpasc.explorer.frame.FrameReferenceAbout;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceAgreement;
 import pasa.cbentley.jpasc.explorer.frame.FrameReferenceConnecting;
-import pasa.cbentley.jpasc.explorer.frame.FrameReferenceDaemonHelp;
-import pasa.cbentley.jpasc.explorer.frame.FrameReferenceExplorer;
-import pasa.cbentley.jpasc.explorer.frame.FrameReferenceNoConnection;
 import pasa.cbentley.jpasc.explorer.frame.FramesExplorer;
 import pasa.cbentley.jpasc.explorer.menu.MenuBarFactoryExplorer;
 import pasa.cbentley.jpasc.explorer.panel.helper.PanelHelperWaitDaemon;
@@ -26,7 +22,6 @@ import pasa.cbentley.jpasc.swing.cmds.ICommandableConnect;
 import pasa.cbentley.jpasc.swing.ctx.PascalSwingCtx;
 import pasa.cbentley.jpasc.swing.interfaces.IPrefsPascalSwing;
 import pasa.cbentley.jpasc.swing.panels.core.PanelTabConsoleAlone;
-import pasa.cbentley.swing.actions.IExitable;
 import pasa.cbentley.swing.ctx.SwingCtx;
 
 /**
@@ -35,6 +30,12 @@ import pasa.cbentley.swing.ctx.SwingCtx;
  *
  */
 public class PascExplorerCtx extends ACtx implements ICommandableConnect {
+
+   public static final int CTX_ID = 5501;
+
+   private ExitTaskJPascExplorer  exitTask;
+
+   private FramesExplorer         frames;
 
    private Image                  imageExplorerLogo64;
 
@@ -49,10 +50,6 @@ public class PascExplorerCtx extends ACtx implements ICommandableConnect {
    private TabJPascExplorer       tabExplorer;
 
    private String                 version;
-
-   private ExitTaskJPascExplorer  exitTask;
-
-   private FramesExplorer         frames;
 
    public PascExplorerCtx(PascalSwingCtx psc) {
       super(psc.getUCtx());
@@ -70,16 +67,31 @@ public class PascExplorerCtx extends ACtx implements ICommandableConnect {
       psc.getSwingCtx().setExitableMain(exitTask);
    }
 
-   public FramesExplorer getFrames() {
-      return frames;
+   public void addI18NKey(List<String> list) {
+      list.add("i18nJPascExplorer");
    }
 
-   /**
-    * 
-    * @return
-    */
-   public ExitTaskJPascExplorer getExitTask() {
-      return exitTask;
+   public void cmdAgree() {
+      //show
+      String keyPrefAgree = IPrefsPascalSwing.PREF_AGREE_PREFIX + getVersion();
+      String value = String.valueOf(System.currentTimeMillis());
+      psc.getPascPrefs().put(keyPrefAgree, value);
+
+      //if not already connected
+      if (getFrames().getFrameMainWindow().isInactive()) {
+         FrameReferenceConnecting frameConnecting = getFrames().getFrameConnecting();
+         frameConnecting.showFrame();
+         frameConnecting.getTab().cmdConnect();
+      }
+      //close frame
+      FrameReferenceAgreement frameAgree = getFrames().getFrameAgreement();
+      frameAgree.closeFrame();
+   }
+
+   public void cmdAgreeNo() {
+      String keyPrefAgree = IPrefsPascalSwing.PREF_AGREE_PREFIX + getVersion();
+      psc.getPascPrefs().put(keyPrefAgree, "");
+      System.exit(0);
    }
 
    /**
@@ -100,12 +112,28 @@ public class PascExplorerCtx extends ACtx implements ICommandableConnect {
       return false;
    }
 
+   public int getCtxID() {
+      return CTX_ID;
+   }
+
+   /**
+    * 
+    * @return
+    */
+   public ExitTaskJPascExplorer getExitTask() {
+      return exitTask;
+   }
+
    public Image getExplorerLogo64() {
       if (imageExplorerLogo64 == null) {
          Image image = psc.createImage("/icons/logo/root_chain_64.png", "");
          imageExplorerLogo64 = image;
       }
       return imageExplorerLogo64;
+   }
+
+   public FramesExplorer getFrames() {
+      return frames;
    }
 
    public PanelTabConsoleAlone getPanelConsole() {
@@ -149,39 +177,12 @@ public class PascExplorerCtx extends ACtx implements ICommandableConnect {
       this.version = version;
    }
 
-   public void showUISuccess() {
-      getFrames().cmdShowMainWindow();
-   }
-
    public void showUIFailure() {
       getFrames().cmdShowNoConnection();
    }
 
-   public void cmdAgree() {
-      //show
-      String keyPrefAgree = IPrefsPascalSwing.PREF_AGREE_PREFIX + getVersion();
-      String value = String.valueOf(System.currentTimeMillis());
-      psc.getPascPrefs().put(keyPrefAgree, value);
-
-      //if not already connected
-      if (getFrames().getFrameMainWindow().isInactive()) {
-         FrameReferenceConnecting frameConnecting = getFrames().getFrameConnecting();
-         frameConnecting.showFrame();
-         frameConnecting.getTab().cmdConnect();
-      }
-      //close frame
-      FrameReferenceAgreement frameAgree = getFrames().getFrameAgreement();
-      frameAgree.closeFrame();
-   }
-
-   public void cmdAgreeNo() {
-      String keyPrefAgree = IPrefsPascalSwing.PREF_AGREE_PREFIX + getVersion();
-      psc.getPascPrefs().put(keyPrefAgree, "");
-      System.exit(0);
-   }
-
-   public void addI18NKey(List<String> list) {
-      list.add("i18nJPascExplorer");      
+   public void showUISuccess() {
+      getFrames().cmdShowMainWindow();
    }
 
 }

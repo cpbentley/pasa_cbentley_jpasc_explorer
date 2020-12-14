@@ -11,11 +11,11 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_jpasc_swing"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing_gif"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/pasa_dbolet_jpascalcoin_v3"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_core_src4"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing_images"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_swing_skin"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_core_j2se"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_core_swing"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/pasa_cbentley_jpasc_jsonrpc"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
