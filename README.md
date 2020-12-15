@@ -21,9 +21,9 @@ Stand alone GUI for exploring the Pascal chain.
 
 ### Software
 
-1. Java 8
+1. Java 8 -> [Oracle JDK 8 Download Page](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html "Lastest JDK 8 from Oracle")
 2. PascalCoin 4.0.2 (October 2019 1.0.x release) 
-3. PascalCoin 5.3 (December 2020 1.1.x release) 
+3. PascalCoin 5.3 (December 2020 1.1.x release)  [PascalCoin Releases] (https://github.com/PascalCoin/PascalCoin/releases "PascalCoin")
 
 ### Trust
 
@@ -37,11 +37,10 @@ You may unpack the sources.jar content into a Java Eclipse project and check the
 
   * [Requirements](#requirements)
   * [Screenshots](#screenshots)
-  * [Latest Release](#latest-release)
-  * [Old Releases](#old-releases)
-  * [Installation](#installation)
-  * [Run as binary](#run-a-release)
-  * [Run in Eclipse](#run-in-eclipse)
+  * [Releases](#releases)
+  * [Run a release as binary](#run-a-release)
+  * [Installation for Devs](#installation)
+  * [Run source code in Eclipse](#run-in-eclipse)
 
 ***
 
@@ -71,13 +70,25 @@ Here are screenshot of version 1.0
 
 ![explorer_ss6_donations.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss6_donations.png)
 
-## Latest Release
+## Releases
 
 [↑ ToC ↑](#table-of-contents)
 
-## Old Releases
+Right click on a link below and save content as
+or
+Click on click, Github opens another page with a Download button.
 
-[↑ ToC ↑](#table-of-contents)
+### Latest Release
+
+#### 1.1.14
+
+![JPascExplorer-1.0.4-pro.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.1.14-pro.jar)
+
+![JPascExplorer-1.0.4-pro-sources.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.1.14-pro-sources.jar)
+
+
+### Old Releases
+
 
 #### 1.0.4
 
@@ -85,8 +96,31 @@ Here are screenshot of version 1.0
 
 ![JPascExplorer-1.0.4-pro-sources.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.0.4-pro-sources.jar)
 
+### Run a release
+
+[↑ ToC ↑](#table-of-contents)
+
+Make sure Java is installed as described in [Installation](#installation). 
+
+Once Java is on your system, you can run programs either on the command line or using the user interface
+
+#### Windows
+
+On Windows, you can run a java jar using the following method
+
+![jpasc_explorer_running_from_windows.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/jpasc_explorer_running_from_windows.png)
+
+#### Command Line
+
+With the cmd line, go to the folder where the jar file is located and
+
+java -jar JPascExplorer-1.0.4-pro.jar
+
+[↑ ToC ↑](#table-of-contents)
 
 ## Installation
+
+This section is written for people who want to setup an Eclipse/Java environment for development.
 
 ### How to Run / Build
 
@@ -168,29 +202,6 @@ Select all projects in the working set.
 
 ![explorer_pull_multiple_ok.jpg](https://github.com/cpbentley/pasa_cbentley_app_hello_ctx/blob/master/res/tutorial/explorer_pull_multiple_ok.jpg)
 
-
-
-#### Run a release
-
-[↑ ToC ↑](#table-of-contents)
-
-Make sure Java is installed as described in [Installation](#installation). 
-
-Once Java is on your system, you can run programs either on the command line or using the user interface
-
-##### Windows
-
-On Windows, you can run a java jar using the following method
-
-![jpasc_explorer_running_from_windows.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/jpasc_explorer_running_from_windows.png)
-
-##### Command Line
-
-With the cmd line, go to the folder where the jar file is located and
-
-java -jar JPascExplorer-1.0.4-pro.jar
-
-[↑ ToC ↑](#table-of-contents)
 
 #### Run in Eclipse
 
