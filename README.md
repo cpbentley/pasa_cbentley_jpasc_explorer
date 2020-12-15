@@ -81,11 +81,13 @@ Click on click, Github opens another page with a Download button.
 
 ### Latest Release
 
-#### 1.1.14
+#### 1.1.17
 
-![JPascExplorer-1.0.4-pro.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.1.14-pro.jar)
+![JPascExplorer-1.1.17-pro.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.1.17-pro.jar) Regular
 
-![JPascExplorer-1.0.4-pro-sources.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.1.14-pro-sources.jar)
+![JPascExplorer-1.1.17-pro-obf.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.1.17-pro-obf.jar) Obfuscated with Proguard
+
+![JPascExplorer-1.1.17-pro-sources.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.1.17-pro-sources.jar) .java sources only
 
 
 ### Old Releases
