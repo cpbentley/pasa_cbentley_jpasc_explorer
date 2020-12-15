@@ -227,6 +227,7 @@ Right click on it and select Run As
 
  * [Proguard Official Sourceforge Repository](https://sourceforge.net/projects/proguard/ "Proguard on sourceforge.net")
  * [Pascal RPC Wiki](https://www.pascalcoin.org/development/rpc "Pascal RPC Wiki")
+ * [Json-smart RPC by netplex](https://netplex.github.io/json-smart/ "json-smart")
  * [Free PASA: Official Pascal Account Distribution BROKEN](https://freepasa.org/ "Free PASA: Official Pascal Account Distribution")
 
 
