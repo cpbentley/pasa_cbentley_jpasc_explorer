@@ -23,11 +23,11 @@ Stand alone GUI for exploring the Pascal chain.
 
 1. Java 8 -> [Oracle JDK 8 Download Page](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html "Lastest JDK 8 from Oracle")
 2. PascalCoin 4.0.2 (October 2019 1.0.x release) 
-3. PascalCoin 5.3 (December 2020 1.1.x release)  [PascalCoin Releases] (https://github.com/PascalCoin/PascalCoin/releases "PascalCoin")
+3. PascalCoin 5.3 (December 2020 1.1.x release) -> [PascalCoin Releases](https://github.com/PascalCoin/PascalCoin/releases "PascalCoin")
 
 ### Trust
 
-This is blockchain world. Trust must be earned. Do not trust, verify!
+This is blockchain world. Trust is required and must be earned. Do not trust, verify!
 
 Every release includes a -sources.jar. This jar file includes every single source files, including all library sources. 
 
@@ -48,11 +48,12 @@ You may unpack the sources.jar content into a Java Eclipse project and check the
 
 [↑ ToC ↑](#table-of-contents)
 
-Here are screenshots of version 1.1 which adds support for Account and Coin Swaps, improved name search, and V5 account fields.
+Here are screenshots of version 1.1.
+It adds support for Account and Coin Swaps, improved name search, and V5 account fields.
 
 ![explorer_v2_ss1_names.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_v2_ss1_names.png)
 
-Here are screenshot of version 1.0
+Here are screenshots of version 1.0
 
 ![explorer_ss7_poloniex.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss7_poloniex.png)
 
