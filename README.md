@@ -17,14 +17,28 @@ Stand alone GUI for exploring the Pascal chain.
 
 ![github_template_pascal_expl.jpg](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/github_template_pascal_expl.jpg)
 
-## Software requirements
+## Requirements
+
+### Software
 
 1. Java 8
-2. PascalCoin 4.0.2 
+2. PascalCoin 4.0.2 (October 2019 1.0.x release) 
+3. PascalCoin 5.3 (December 2020 1.1.x release) 
+
+### Trust
+
+This is blockchain world. Trust must be earned. Do not trust, verify!
+
+Every release includes a -sources.jar. This jar file includes every single source files, including all library sources. 
+
+You may unpack the sources.jar content into a Java Eclipse project and check the running code by yourself in debug mode. This section [Run in Eclipse](#run-in-eclipse) provides more.
 
 ## Table of Contents
 
+  * [Requirements](#requirements)
+  * [Screenshots](#screenshots)
   * [Latest Release](#latest-release)
+  * [Old Releases](#old-releases)
   * [Installation](#installation)
   * [Run as binary](#run-a-release)
   * [Run in Eclipse](#run-in-eclipse)
@@ -32,6 +46,14 @@ Stand alone GUI for exploring the Pascal chain.
 ***
 
 ## Screenshots
+
+[↑ ToC ↑](#table-of-contents)
+
+Here are screenshots of version 1.1 which adds support for Account and Coin Swaps, improved name search, and V5 account fields.
+
+![explorer_v2_ss1_names.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_v2_ss1_names.png)
+
+Here are screenshot of version 1.0
 
 ![explorer_ss7_poloniex.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/explorer_ss7_poloniex.png)
 
@@ -51,7 +73,11 @@ Stand alone GUI for exploring the Pascal chain.
 
 ## Latest Release
 
-[↑](#table-of-contents)
+[↑ ToC ↑](#table-of-contents)
+
+## Old Releases
+
+[↑ ToC ↑](#table-of-contents)
 
 #### 1.0.4
 
@@ -59,26 +85,6 @@ Stand alone GUI for exploring the Pascal chain.
 
 ![JPascExplorer-1.0.4-pro-sources.jar](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/releases/JPascExplorer-1.0.4-pro-sources.jar)
 
-### Run .jar Binary
-
-Make sure Java is installed. Either on the command line or using the user interface
-
-With the cmd line, go to the folder where the jar is and
-
-java -jar JPascExplorer-1.0.4-pro.jar
-
-With the gui in Windows
-
-![jpasc_explorer_running_from_windows.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/jpasc_explorer_running_from_windows.png)
-
-
-
-### Build sources
-
-Do not trust, verify!
-
-The source jar includes every single source files, including all library sources. Unpack the sources.jar
-into a bare eclipse Java project and it will run from there.
 
 ## Installation
 
@@ -117,6 +123,8 @@ into a bare eclipse Java project and it will run from there.
 
 #### Github Repository Dependencies
 
+The pasa_cbentley_jpasc_explorer project uses the following entities
+
 num | id | Right Click -> Copy Link Address
 ----| -- | -------------
 1 | java_src4_compat_j2se | [Import Link](https://github.com/cpbentley/java_src4_compat_j2se)
@@ -124,15 +132,17 @@ num | id | Right Click -> Copy Link Address
 3 | pasa_cbentley_byteobjects_src4 | [Import Link](https://github.com/cpbentley/pasa_cbentley_byteobjects_src4)
 4 | pasa_cbentley_core_src5 | [Import Link](https://github.com/cpbentley/pasa_cbentley_core_src5)
 5 | pasa_cbentley_core_src8 | [Import Link](https://github.com/cpbentley/pasa_cbentley_core_src8)
-6 | pasa_dbolet_jpascalcoin_v3 | [Import Link](https://github.com/cpbentley/pasa_dbolet_jpascalcoin_v3)
-7 | pasa_cbentley_swing | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing)
-8 | pasa_cbentley_swing_images | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_images)
-9 | pasa_cbentley_swing_gif | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_gif)
-10 | pasa_cbentley_jpasc_pcore | [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_pcore)
-11 | pasa_jtattoo | [Import Link](https://github.com/cpbentley/pasa_jtattoo)
-12 | pasa_cbentley_jpasc_swing | [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_swing)
-13 | JFormDesigner_FlatLaf | [Import Link](https://github.com/cpbentley/JFormDesigner_FlatLaf)
-14 | pasa_cbentley_swing_skin | [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_skin)
+6 | pasa_cbentley_core_j2se | [Import Link](https://github.com/cpbentley/pasa_cbentley_core_j2se/tree/master/pasa_cbentley_core_j2se)
+7 | pasa_cbentley_core_swing 	| [Import Link](https://github.com/cpbentley/pasa_cbentley_core_swing)
+8 | pasa_cbentley_swing 		| [Import Link](https://github.com/cpbentley/pasa_cbentley_swing)
+9 | pasa_cbentley_swing_images 	| [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_images)
+10 | pasa_cbentley_swing_gif 	| [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_gif)
+11 | pasa_cbentley_jpasc_pcore 	| [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_pcore)
+12 | pasa_jtattoo 				| [Import Link](https://github.com/cpbentley/pasa_jtattoo)
+13 | JFormDesigner_FlatLaf 		| [Import Link](https://github.com/cpbentley/JFormDesigner_FlatLaf)
+14 | pasa_cbentley_swing_skin 	| [Import Link](https://github.com/cpbentley/pasa_cbentley_swing_skin)
+15 | pasa_cbentley_jpasc_swing 	| [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_swing)
+16 | pasa_cbentley_jpasc_jsonrpc | [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_jsonrpc)
 final | pasa_cbentley_jpasc_explorer | [Import Link](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer)
 
 After all this hard work, all the projects should compile without errors.
@@ -161,16 +171,30 @@ Select all projects in the working set.
 
 
 #### Run a release
-[Up](#table-of-contents)
+
+[↑ ToC ↑](#table-of-contents)
+
+Make sure Java is installed as described in [Installation](#installation). 
+
+Once Java is on your system, you can run programs either on the command line or using the user interface
 
 ##### Windows
 
+On Windows, you can run a java jar using the following method
+
+![jpasc_explorer_running_from_windows.png](https://github.com/cpbentley/pasa_cbentley_jpasc_explorer/blob/master/doc/jpasc_explorer_running_from_windows.png)
+
 ##### Command Line
 
-[↑](#table-of-contents)
+With the cmd line, go to the folder where the jar file is located and
+
+java -jar JPascExplorer-1.0.4-pro.jar
+
+[↑ ToC ↑](#table-of-contents)
 
 #### Run in Eclipse
 
+[↑ ToC ↑](#table-of-contents)
 
 Search in Eclipse for project **_pasa_cbentley_jpasc_explorer_**, inside src folder
 
@@ -182,6 +206,7 @@ Right click on it and select Run As
 ## Tasks List
 
 - [x] Pages Github
+- [x] V5
 - [ ] Test all classes
 
 [table of contents](#table-of-contents)
@@ -190,7 +215,7 @@ Right click on it and select Run As
 
  * [Proguard Official Sourceforge Repository](https://sourceforge.net/projects/proguard/ "Proguard on sourceforge.net")
  * [Pascal RPC Wiki](https://www.pascalcoin.org/development/rpc "Pascal RPC Wiki")
- * [Free PASA: Official Pascal Account Distribution](https://freepasa.org/ "Free PASA: Official Pascal Account Distribution")
+ * [Free PASA: Official Pascal Account Distribution BROKEN](https://freepasa.org/ "Free PASA: Official Pascal Account Distribution")
 
 
 [table of contents](#table-of-contents)
