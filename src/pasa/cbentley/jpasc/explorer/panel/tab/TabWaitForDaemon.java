@@ -5,7 +5,6 @@ import java.awt.BorderLayout;
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.jpasc.explorer.panel.daemon.TabsNoobGifs;
 import pasa.cbentley.jpasc.explorer.panel.helper.PanelHelperWaitDaemon;
-import pasa.cbentley.jpasc.explorer.panel.helper.TabsNoConnection;
 import pasa.cbentley.swing.imytab.AbstractMyTab;
 
 public class TabWaitForDaemon extends AbstractMyTab {

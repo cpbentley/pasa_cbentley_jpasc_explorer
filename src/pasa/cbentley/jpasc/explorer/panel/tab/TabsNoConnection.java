@@ -3,7 +3,7 @@
  * This code is licensed under CC by-nc-nd 4.0 (see LICENSE.txt for details)
  * Contact author for uses outside of the NonCommercial-NoDerivatives clauses.   
  */
-package pasa.cbentley.jpasc.explorer.panel.helper;
+package pasa.cbentley.jpasc.explorer.panel.tab;
 
 import pasa.cbentley.jpasc.explorer.ctx.PascExplorerCtx;
 import pasa.cbentley.jpasc.explorer.panel.about.TabInstallDesktopWallet;
