@@ -52,7 +52,7 @@ public class PascExplorerCtx extends ACtx implements ICommandableConnect {
    private String                 version;
 
    public PascExplorerCtx(PascalSwingCtx psc) {
-      super(psc.getUCtx());
+      super(psc.getUC());
       this.psc = psc;
       this.sc = psc.getSwingCtx();
       SwingCtx sc = psc.getSwingCtx();

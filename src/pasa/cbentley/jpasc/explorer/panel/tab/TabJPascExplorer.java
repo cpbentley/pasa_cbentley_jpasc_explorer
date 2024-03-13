@@ -56,7 +56,7 @@ public class TabJPascExplorer extends AbstractMyTab implements IRootTabPane {
       super(pec.getSwingCtx(), ID);
       this.pec = pec;
       this.psc = pec.getPascalSwingCtx();
-      this.uc = pec.getUCtx();
+      this.uc = pec.getUC();
 
    }
 
