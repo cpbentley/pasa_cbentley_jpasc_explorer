@@ -152,7 +152,7 @@ public class RunJPascExplorer extends RunPascalSwingAbstract {
       config.setFlagTag(FLAG_18_PRINT_MEMORY, false);
 
       //we want to see thread info when debugging workers
-      config.setFlagFormat(MASTER_FLAG_07_THREAD_DATA, true);
+      config.setFlagMaster(MASTER_FLAG_07_THREAD_DATA, true);
 
       config.setFlagTag(ITechTags.FLAG_09_PRINT_FLOW, true);
       config.setClassNegative(AnimRunnerProducer.class, true);
